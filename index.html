@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>LEMONDERMA — 글로벌 유통 파트너 마케팅 가이드북</title>
+<link rel="stylesheet" href="https://use.typekit.net/ycy6gis.css">
+<style>
+  :root{
+    --dy:#E6EE7A;              /* Derma Yellow — 브랜드 기준색(패키지) */
+    --cream:#fefcd0;           /* 배경 그라디언트 상단 */
+    --line-hi:#ddea65; --hl:rgba(221,247,70,.30);
+    --ink:#000; --green-t:#4b612d; --green-n:#025200;
+    --mute:rgba(0,0,0,.65); --red:#e23b3b;
+    --gold:#f4dd3f;            /* 커서 글로우 — 마케팅 어드민 동일값 */
+    --card:#fffdf2;
+    --serif:"adobe-caslon-pro",'Pretendard',Georgia,serif;
+    --sans:"neue-haas-grotesk-text",'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:var(--sans);font-weight:400;letter-spacing:-.04em;
+    color:var(--ink);line-height:1.75;font-size:16.5px;
+    background:linear-gradient(180deg,var(--cream) 0%,#fff 62%) fixed;
+    min-height:100vh;overflow:hidden;cursor:default;
+  }
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-hi);text-decoration-thickness:2px;}
+
+  /* 커서 글로우 — 마케팅 어드민 동일 세팅 */
+  #cglow{position:fixed;top:0;left:0;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;
+    pointer-events:none;z-index:9998;will-change:transform;
+    background:radial-gradient(circle,rgba(244,221,63,.20),rgba(244,221,63,.07) 38%,transparent 66%)}
+  #cring{position:fixed;top:0;left:0;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;
+    pointer-events:none;z-index:9999;will-change:transform;
+    border:1.5px solid rgba(160,132,12,.45);
+    box-shadow:0 0 14px 3px rgba(244,221,63,.5),inset 0 0 8px rgba(244,221,63,.35);
+    transition:width .16s ease,height .16s ease,opacity .25s,border-color .16s}
+  #cring.act{width:46px;height:46px;border-color:rgba(160,132,12,.7)}
+  @media(hover:none){#cglow,#cring{display:none}}
+
+  /* 내비 */
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(254,252,208,.95);backdrop-filter:blur(10px);
+    border-bottom:2px solid var(--ink);z-index:60;}
+  nav .in{max-width:1000px;margin:0 auto;padding:.6rem 22px;display:flex;gap:.3rem;flex-wrap:wrap;
+    font-size:.8rem;align-items:center;}
+  nav .brand{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.05rem;margin-right:.7rem;letter-spacing:0;}
+  nav a{text-decoration:none;font-weight:500;padding:.28em .6em;border-radius:999px;white-space:nowrap;}
+  nav a:hover{background:rgba(0,0,0,.07);}
+  nav a.on{background:var(--ink);color:var(--dy);font-weight:700;}
+
+  /* 슬라이드 */
+  .slide{position:absolute;inset:0;padding:74px 22px 88px;display:none;overflow-y:auto;}
+  .slide.on{display:block;animation:in .32s ease;}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .inner,.sh{max-width:880px;margin:0 auto;}
+  .sh{padding:1.5rem 0 1rem;}
+  .sh .lab{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--green-n);display:block;margin-bottom:.5rem;}
+  .sh h2{font-family:var(--serif);font-weight:600;font-size:2.1rem;line-height:1.25;letter-spacing:-.01em;}
+  .sh .cont{display:inline-block;margin-top:.5rem;font-size:.8rem;font-weight:700;color:var(--mute);}
+  .sbody{max-width:880px;margin:0 auto;padding-bottom:3rem;}
+
+  /* 커버 */
+  .cover .inner{padding:11vh 0 6vh;}
+  .cover .wm{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.6rem;letter-spacing:0;display:block;margin-bottom:2.4rem;}
+  .cover h1{font-family:var(--serif);font-weight:600;font-size:3.1rem;line-height:1.18;letter-spacing:-.015em;}
+  .cover .card{margin-top:3.2rem;border-top:2px solid var(--ink);padding-top:1.2rem;max-width:620px;}
+  .cover .card p{margin:0;} .cover .card .m{font-size:.9rem;color:var(--mute);margin-bottom:.9rem;}
+  .cover .card .h{font-size:.95rem;font-weight:700;}
+
+  h3{font-family:var(--sans);font-weight:700;font-size:1.2rem;margin:2.1rem 0 .6rem;}
+  h4{font-family:var(--sans);font-weight:700;font-size:1.03rem;margin:1.5rem 0 .45rem;}
+  p{margin-bottom:1.05rem;}
+  ul,ol{margin:0 0 1.1rem 1.25rem;} li{margin-bottom:.45rem;}
+  strong{font-weight:700;}
+  em{font-style:normal;background:linear-gradient(transparent 58%,var(--hl) 58%);}
+  code{background:#f3f0cf;padding:.1em .42em;border-radius:4px;font-size:.9em;letter-spacing:0;}
+  .small{font-size:.9rem;color:var(--mute);}
+
+  .badge{display:inline-block;font-size:.8rem;font-weight:700;padding:.3em .95em;border-radius:999px;
+    vertical-align:middle;margin-left:.5em;white-space:nowrap;letter-spacing:-.01em;line-height:1.45;
+    box-shadow:0 2px 0 rgba(0,0,0,.22);}
+  .b-fix{background:#000;color:var(--dy);border:2px solid #000;}
+  .b-free{background:var(--dy);color:#000;border:2px solid #000;}
+  .b-ref{background:#fff;color:#000;border:2px dashed #000;box-shadow:none;}
+  /* 슬라이드 제목 안에서는 한 단계 더 크게 */
+  .sh h2 .badge{font-size:.9rem;padding:.32em 1em;margin-left:.6em;}
+  /* 소제목 옆 배지 */
+  h3 .badge{font-size:.76rem;}
+  /* 범례 표 안에서는 크게 */
+  .legend .badge{font-size:.92rem;padding:.36em 1.1em;margin:0;}
+
+  .quote{background:var(--ink);color:#fff;border-radius:16px;padding:1.7rem 1.9rem;margin:1.6rem 0;font-size:1.12rem;}
+  .quote strong{color:var(--dy);} .quote p:last-child{margin-bottom:0;}
+
+  .box{border:2px solid var(--line-hi);border-radius:14px;padding:1.3rem 1.5rem;margin:1.5rem 0;background:#fff;}
+  .box.y{background:#fdffe8;border-color:var(--ink);}
+  .box.case{background:#fdffe8;border-left:10px solid var(--ink);}
+  .box h4{margin-top:0;} .box p:last-child,.box ul:last-child{margin-bottom:0;}
+
+  .warn{border-left:6px solid var(--red);background:#fdf1f1;padding:1rem 1.3rem;border-radius:0 12px 12px 0;margin:1.4rem 0;}
+  .warn p:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:1.3rem 0;font-size:.94rem;background:#fff;}
+  th{background:var(--ink);color:#fff;text-align:left;padding:.58em .78em;font-size:.88rem;font-weight:700;}
+  td{border-bottom:1px solid var(--line-hi);padding:.6em .78em;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .ok{color:var(--green-n);font-weight:700;}.no{color:var(--red);font-weight:700;}
+
+  .grid{display:grid;gap:1rem;margin:1.4rem 0;}
+  .g2{grid-template-columns:1fr 1fr;} .g3{grid-template-columns:repeat(3,1fr);}
+  .countries{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin:1.4rem 0;}
+  .countries div{border:2px solid var(--ink);border-radius:10px;padding:.65rem .85rem;background:#fff;}
+  .countries b{display:block;font-size:1.02rem;}
+  .role{border:2px solid var(--ink);border-radius:14px;overflow:hidden;margin-bottom:.9rem;background:#fff;}
+  .role .head{background:var(--dy);padding:.75rem 1.05rem;font-weight:700;}
+  .role .head span{font-weight:400;color:rgba(0,0,0,.7);}
+  .role .body{padding:.95rem 1.05rem;font-size:.95rem;}
+  .role .body div{margin-bottom:.45rem;} .role .body div:last-child{margin-bottom:0;}
+  .role .k{font-weight:700;color:var(--green-n);}
+  figure{margin:1.5rem 0;} figure img{width:100%;height:auto;border:2px solid var(--ink);border-radius:14px;display:block;}
+  figcaption{margin-top:.5rem;}
+
+  /* 하단 조작 */
+  .ctrl{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+    border-top:2px solid var(--ink);z-index:60;}
+  .ctrl .in{max-width:1000px;margin:0 auto;padding:.6rem 22px;display:flex;align-items:center;gap:1rem;}
+  .ctrl button{font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:-.02em;
+    background:var(--ink);color:var(--dy);border:none;border-radius:999px;padding:.45em 1.2em;cursor:pointer;}
+  .ctrl button:disabled{opacity:.25;}
+  .ctrl .pg{flex:1;font-size:.85rem;font-weight:700;color:var(--mute);text-align:center;}
+  .bar{position:fixed;bottom:0;left:0;height:3px;background:var(--ink);z-index:61;transition:width .3s;}
+  #shint{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);z-index:59;
+    background:var(--ink);color:var(--dy);font-size:.78rem;font-weight:700;letter-spacing:-.02em;
+    padding:.3em .9em;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none;}
+  body.tall #shint{opacity:.9;}
+
+  @media(max-width:720px){
+    .g2,.g3{grid-template-columns:1fr;} .countries{grid-template-columns:1fr 1fr;}
+    .cover h1{font-size:2.1rem;} .sh h2{font-size:1.6rem;}
+    body{cursor:auto;} #glow,#dot{display:none;}
+    table{display:block;overflow-x:auto;} table td,table th{min-width:9em;}
+    nav .in{font-size:.72rem;padding:.5rem 14px;} .slide{padding:92px 14px 84px;}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+    <span class="brand">Lemonderma</span>
+    <a href="#p0" data-part="p0">0. 시작하기 전에</a>
+    <a href="#p1" data-part="p1">1. 브랜드 메시지</a>
+    <a href="#p2" data-part="p2">2. 레몬과 제주 — 브랜드 스토리</a>
+    <a href="#p3" data-part="p3">3. 제품과 판매 방법</a>
+    <a href="#p4" data-part="p4">4. 핵심 판매 포인트 5가지</a>
+    <a href="#p5" data-part="p5">5. 필수 준수 사항</a>
+    <a href="#p6" data-part="p6">6. 디자인 가이드</a>
+    <a href="#p7" data-part="p7">7. 파트너십</a>
+    <a href="#apx" data-part="apx">부록. 참고 자료</a></div></nav>
+
+<section class="slide cover on" data-part="cover">
+  <div class="inner">
+    <span class="wm">Lemonderma</span>
+    <h1>글로벌 유통 파트너<br>마케팅 가이드북</h1>
+    <div class="card">
+      <p class="m">Edition 1.3 · 2026년 7월 · 한국어판<br>발행: VDVIA Inc. — LEMONDERMA 본사 마케팅팀</p>
+      <p class="h">→ 오른쪽 화살표 키 또는 아래 <strong>다음</strong> 버튼으로 넘겨 보십시오.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="p0" data-part="p0">
+<header class="sh"><span class="lab">Part 0</span><h2>시작하기 전에</h2></header>
+<div class="sbody">
+<p>레몬더마는 한국의 비건 더마코스메틱 브랜드입니다. 모회사 <strong>지쉘바이오</strong>가 50개국 이상의 클리닉에 공급해온 엑소좀 연구를 일상 스킨케어로 옮겨 만들었고, 제조는 글로벌 1위 화장품 ODM인 <strong>COSMAX</strong>가 맡습니다.</p>
+
+<h3>레몬더마 진출국</h3>
+
+<div class="countries">
+  <div><b>🇰🇷 한국</b></div>
+  <div><b>🇺🇸 미국</b></div>
+  <div><b>🇦🇪 UAE</b></div>
+  <div><b>🇷🇺 러시아</b></div>
+  <div><b>🇹🇭 태국</b></div>
+  <div><b>🇲🇳 몽골</b></div>
+  <div><b>🇦🇺 호주</b></div>
+  <div><b>🇯🇵 일본</b></div>
+  <div><b>🇸🇦 사우디</b></div>
+</div>
+
+<h3>이 가이드북을 읽는 법</h3>
+
+<p>이 책은 여러분에게 정답을 지시하는 문서가 아닙니다. <strong>브랜드의 핵심은 본사가 지키고, 현지에서 무엇이 통하는지는 여러분이 가장 잘 압니다.</strong> 그래서 모든 항목에 세 가지 표시를 붙였습니다.</p>
+
+<table class="legend">
+  <tr><th style="width:26%;">표시</th><th>뜻</th></tr>
+  <tr><td><span class="badge b-fix">🔒 고정</span></td><td>모든 시장에서 동일하게 적용됩니다. 변경이 필요하면 본사와 협의해 주십시오.</td></tr>
+  <tr><td><span class="badge b-free">🔓 재량</span></td><td><strong>여러분이 결정합니다.</strong> 본사는 관여하지 않습니다.</td></tr>
+  <tr><td><span class="badge b-ref">📎 참고</span></td><td>본사가 다른 시장에서 확인한 정보입니다. 참고 자료로 활용하십시오.</td></tr>
+</table>
+
+<p class="small">국가별 시장·채널·규제 브리핑은 이 책에 담지 않았습니다. 해당 국가 담당 파트너에게는 <strong>별책 시장 브리핑</strong>을 함께 전달합니다.</p>
+</div>
+</section>
+
+<section class="slide" id="p1" data-part="p1">
+<header class="sh"><span class="lab">Part 1</span><h2>브랜드 메시지 <span class="badge b-fix">🔒 고정</span></h2></header>
+<div class="sbody">
+<h3>레몬더마가 시작된 지점</h3>
+
+<p>스킨케어에는 오래된 믿음이 하나 있습니다. <em>효과를 보려면 자극이 있어도 더 강한 것을, 더 많이 발라야 한다</em>는 것입니다. 레몬더마는 이 믿음이 사실과 다르다는 데서 시작했습니다.</p>
+
+<div class="quote">
+  <p>자극이 느껴진다고 성분이 잘 작동한 것은 아닙니다. 강한 제품은 피부 장벽에 먼저 부담을 줍니다. <strong>피부에 실제로 남는 것은 바른 양이 아니라, 피부 속까지 도달한 양입니다.</strong></p>
+  <p>그래서 중요한 것은 성분의 세기가 아니라 <strong>전달</strong>입니다. 필요한 성분이 자극 없이 피부 속까지 전달되면, 피부는 억지로 자극받는 것이 아니라 <strong>안에서부터 좋아집니다.</strong></p>
+  <p>레몬더마는 그 전달을 과학으로 풉니다. 모회사 지쉘바이오가 50개국 이상의 클리닉에 공급해온 엑소좀 연구를 데일리 스킨케어로 내려, <strong>비건의 순함을 지키면서 작동하는</strong> 처방을 만듭니다.</p>
+</div>
+
+<p>브랜드 이름에도 같은 뜻이 담겨 있습니다. <strong>자극적일 것 같은 과일(Lemon)로, 피부과학 영역(Derma)의 제품을 만든다</strong> — 레몬을 선택한 이유는 Part 2에서 이어집니다.</p>
+
+<h3>브랜드 슬로건</h3>
+
+<p>레몬더마의 브랜드 슬로건은 두 개입니다.</p>
+
+<div class="grid g2">
+  <div class="box y"><h4>"Where Nature Meets Science"</h4><p style="margin-bottom:0;">기술·성분 축. 자연에서 온 것과 실험실에서 검증한 것이 만나는 자리.</p></div>
+  <div class="box y"><h4>"Vegan that works"</h4><p style="margin-bottom:0;">효능 검증 축. 비건이면서 작동한다는 선언.</p></div>
+</div>
+
+<h3>카테고리 — K-Pharmacy Vegan Dermacosmetic</h3>
+
+<p>레몬더마는 일반 화장품이 아니라 <strong>더마코스메틱</strong>으로 설계되었고, 한국에서는 <strong>약국에서만 판매합니다.</strong> 같은 K-뷰티 브랜드라도 일반 화장품과 구분되는 지점이 바로 이 유통 자격입니다.</p>
+
+<p>이 사실은 그대로 말할 수 있습니다. 다만 <strong>"한국에서"</strong>를 반드시 함께 붙여 주십시오 — 현지 소비자가 "우리 나라 약국에서 판다"로 오해하지 않도록 하는 것이 서로에게 안전합니다.</p>
+
+<h3>톤 — Premium Gentle Science</h3>
+
+<ul>
+  <li>전문적이지만 차분하게. 과장하지 않고, 사용감과 체감을 중심으로 이야기합니다.</li>
+  <li>급하게 몰아붙이지 않습니다. 어떤 프로모션을 어떻게 설계할지는 <span class="badge b-free">🔓 재량</span>이지만, 브랜드가 말하는 방식은 차분함을 유지해 주십시오.</li>
+  <li><strong>정직이 정체성입니다.</strong> 세럼을 바를 때 느껴지는 가벼운 작동감은 숨기지 않고 미리 알립니다. 숨기면 배신감이 되고, 미리 알리면 신뢰가 됩니다. 실제로 이 한 문장이 반품과 낮은 평점을 막습니다. (Part 3 참조)</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" data-part="p1">
+<header class="sh"><span class="lab">Part 1</span><h2>브랜드 메시지 <span class="badge b-fix">🔒 고정</span></h2><span class="cont">계속 2/2</span></header>
+<div class="sbody">
+<h3>우리가 아는 고객 <span class="badge b-ref">📎 참고</span></h3>
+
+<p>지금까지 레몬더마에 반응해온 고객은 대체로 이런 사람입니다.</p>
+
+<div class="box">
+  <p style="margin-bottom:0;"><strong>30대 초반부터 50대 후반</strong>의 여성. 효과를 보려고 강한 성분을 써봤다가 피부가 힘들어진 경험이 있고, 그래서 이제는 순함을 먼저 봅니다. 그러나 잡티와 주름을 포기할 생각은 없습니다. 광고 문구보다 성분표를 직접 읽고, 자기 피부에 맞는 <strong>"순한데 진짜 되는"</strong> 하나를 찾고 있습니다.</p>
+</div>
+
+<p>이런 고객은 어느 나라에나 있습니다. 다만 <strong>여러분의 시장에서 어떤 고객층을 먼저 공략할지는 여러분이 결정하십시오</strong> <span class="badge b-free">🔓 재량</span>. 연령대·피부 고민·구매 동기의 우선순위는 시장마다 다르고, 그 판단은 현지에 있는 쪽이 정확합니다.</p>
+</div>
+</section>
+
+<section class="slide" id="p2" data-part="p2">
+<header class="sh"><span class="lab">Part 2</span><h2>레몬과 제주 — 브랜드 스토리 <span class="badge b-fix">🔒 고정</span></h2></header>
+<div class="sbody">
+<p>레몬은 먹을 때는 누구나 좋아하지만, 피부에 바른다고 하면 <strong>"자극적일 것 같다"</strong>고 생각합니다. 레몬더마는 바로 그 지점을 선택했습니다.</p>
+
+<p><strong>자극적일 것 같은 레몬이 실제로는 순하다</strong> — 이것이 브랜드 이름이 하는 말입니다. 강해야 효과가 있다는 생각이 틀렸다는 것을, 제품 이름 하나로 보여줍니다.</p>
+
+<h3>고객이 물어보면 — 세 문장으로 답하십시오</h3>
+
+<div class="box y">
+  <h4>1. "레몬이 자극적이라는 건 껍질 이야기입니다."</h4>
+  <p style="margin-bottom:0;">레몬 <strong>껍질</strong>에는 햇빛과 만나면 피부를 자극할 수 있는 성분이 있습니다. 그런데 이 성분은 껍질에 몰려 있고 <strong>과즙에는 거의 없습니다</strong> — 자몽이나 라임 주스보다도 적습니다.</p>
+</div>
+
+<div class="box y">
+  <h4>2. "레몬더마는 껍질이 아니라 과즙을 씁니다."</h4>
+  <p style="margin-bottom:0;">제품에 들어가는 레몬 성분은 모두 <strong>제주 레몬의 과즙</strong>에서 옵니다.</p>
+</div>
+
+<div class="box y">
+  <h4>3. "그 과즙에는 좋은 성분이 원래부터 들어 있습니다."</h4>
+  <p style="margin-bottom:0;">비타민C와 구연산 같은 항산화 성분입니다. 그리고 <strong>레몬 엑소좀은 얇은 막이 이 성분들을 감싸고 있어서, 안의 비타민C가 잘 보존됩니다</strong>(학술적으로 확인된 사실입니다).</p>
+</div>
+
+<p class="small">위 세 문장은 검증된 사실이므로 그대로 사용하실 수 있습니다. 다만 <strong>"레몬은 전혀 자극적이지 않다"처럼 넓게 확장하지는 말아 주십시오</strong> — 위 이야기는 햇빛과 관련된 자극에 한정된 내용입니다.</p>
+
+<h3>제주 — 한국에서 가장 유명한 섬</h3>
+
+<p>레몬더마의 레몬은 <strong>제주도</strong>에서 자랍니다. 한국에서 가장 유명한 섬이고, 바다로 둘러싸인 따뜻한 화산섬이며, 한국 감귤이 자라는 대표적인 곳입니다.</p>
+
+<figure style="margin:1.6rem 0;">
+  <img src="assets/jeju-lemon.jpg" alt="제주도의 레몬 농원 — 노란 레몬과 멀리 보이는 바다" style="width:100%;height:auto;border:2px solid var(--ink);border-radius:14px;display:block;">
+  <figcaption class="small" style="margin-top:.5rem;">한국에서 가장 유명한 섬, 제주도에서 자란 신선한 레몬.</figcaption>
+</figure>
+
+<div class="box">
+  <p style="margin-bottom:0;"><strong>제주를 이야기할 때는 어려운 설명이 필요 없습니다.</strong><br>위도·기후·토양 같은 정보는 해외 고객에게 잘 전달되지 않습니다. <strong>"한국에서 가장 유명한 섬, 제주도에서 자란 신선한 레몬"</strong> — 이 한 문장이면 충분합니다. 그리고 말로 설명하기보다 <strong>사진으로 보여주는 것</strong>이 훨씬 잘 통합니다.</p>
+</div>
+
+<h3>적용 범위와 활용</h3>
+
+<p>이 이야기는 <strong>세럼과 크림 양쪽에 씁니다.</strong> 레몬 유래 성분이 두 제품 공통이고, 과즙 유래 서사는 브랜드 단위의 정체성이기 때문입니다. 다만 <strong>감각과 전달에 관한 어휘</strong>(마이크로 크리스탈·작동감·"Feel the active")<strong>는 세럼 전용</strong>입니다.</p>
+
+<div class="box y">
+  <h4>20초 안내 문구 — 매장·상담용</h4>
+  <p style="margin-bottom:0;">"레몬이 피부에 자극적일 거라는 건 껍질 이야기입니다. 레몬더마는 제주 레몬의 <strong>과즙</strong>을 씁니다. 스킨케어도 같아요 — 강한 걸 많이 바르는 게 답이 아니라, <strong>필요한 성분이 자극 없이 피부 속까지 도달하는 게</strong> 답입니다. 레몬더마는 지쉘바이오의 엑소좀 과학으로 그 전달을 풀고, 한국에서는 <strong>약국에서만</strong> 판매합니다."</p>
+</div>
+
+<p class="small"><strong>콘텐츠로 길게 풀 때의 순서 <span class="badge b-ref">📎 참고</span></strong> — 위 세 문장 → 제주도 풍경·레몬 수확 사진 → 지쉘바이오의 엑소좀 연구 배경 → "그래서 이름이 레몬더마입니다."</p>
+</div>
+</section>
+
+<section class="slide" id="p3" data-part="p3">
+<header class="sh"><span class="lab">Part 3</span><h2>제품과 판매 방법</h2></header>
+<div class="sbody">
+<h3>제품 <span class="badge b-fix">🔒 고정</span></h3>
+
+<div class="quote" style="font-family:Georgia,serif;font-size:1.5rem;text-align:center;">
+  <p><strong>SERUM OPENS, CREAM SEALS.</strong></p>
+  <p style="font-size:1rem;font-family:inherit;opacity:.85;">세럼이 열고, 크림이 잠근다</p>
+</div>
+
+<table>
+  <tr><th style="width:16%;"></th><th>Lemonshot 150 Exo:Booster <b>Serum</b></th><th>Lemonshot Exo:Booster <b>Cream</b></th></tr>
+  <tr><td><b>역할</b></td><td>피부를 연다 — 작동감이 있는 비건 글로우 부스터</td><td>수분과 윤기를 잠근다 — 가벼운 데일리 마감 크림</td></tr>
+  <tr><td><b>클레임 축</b></td><td>안티에이징 · 브라이트닝 · 모공</td><td>주름 · 피부 장벽 · 브라이트닝</td></tr>
+  <tr><td><b>핵심 성분</b></td><td>레몬 엑소좀 1억 입자 · <b>비건 마이크로 크리스탈 10,000ppm</b> · 나이아신아마이드 2% · 아데노신 0.04%</td><td>레몬 엑소좀 1억 입자 · <b>세라마이드 · 판테놀</b> · 나이아신아마이드 2% · 아데노신 0.04%</td></tr>
+  <tr><td><b>사용감</b></td><td>가벼운 텍스처, 빠른 흡수. 바를 때 <b>가벼운 작동감</b>(아래 참조)</td><td>답답하지 않고 메이크업 아래에도 잘 깔림</td></tr>
+  <tr><td><b>용량</b></td><td>50ml / 1.69 fl.oz</td><td>50ml / 1.69 fl.oz</td></tr>
+</table>
+
+<div class="box y">
+  <h4>제품 상세 정보 — 브로셔로 확인하십시오</h4>
+  <p style="margin-bottom:0;">전성분, 제품 사양, 인증 자료 등 상세 정보는 이미 전달드린 브로셔에 정리되어 있습니다. → <a href="https://drive.google.com/file/d/1l_xvQ85xDeYzbLkEmwCsaHpgSUk0HpnH/view?usp=drive_link" target="_blank" rel="noopener"><strong>LEMONDERMA 브로셔 열기</strong></a></p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="p3">
+<header class="sh"><span class="lab">Part 3</span><h2>제품과 판매 방법</h2><span class="cont">계속 2/4</span></header>
+<div class="sbody">
+<h3>작동감은 먼저 말해 주십시오 <span class="badge b-fix">🔒 고정</span></h3>
+
+<p>세럼을 바를 때 가벼운 따끔함이 느껴질 수 있습니다. 이것은 화학적 자극이 아니라 <strong>비건 마이크로 크리스탈이 피부에 길을 여는 물리적인 감각</strong>이며, 보통 5~10분 안에 가라앉습니다. 민감한 피부라면 격일로 시작하도록 안내하시면 좋습니다.</p>
+
+<div class="box y">
+  <h4>고객 안내 문구 예시</h4>
+  <p style="margin-bottom:0;">"바를 때 살짝 따끔한 느낌이 들 수 있어요. 이건 성분이 자극을 준 게 아니라 피부에 길이 열리는 감각이고, 5분에서 10분이면 사라집니다. 피부가 예민하시면 이틀에 한 번으로 시작해 보세요."</p>
+</div>
+
+<p>이 안내를 <strong>먼저</strong> 하는 것과 하지 않는 것의 차이는 큽니다. 미리 알면 고객은 "설명대로구나" 하고 받아들이고, 모르고 겪으면 "속았다"고 느낍니다. 반품과 낮은 평점의 상당 부분이 여기서 갈립니다.</p>
+
+<div class="box y">
+  <h4>본사가 권장하는 세럼 문구</h4>
+  <p style="margin-bottom:.5rem;">이 감각을 한 줄로 표현할 때 본사는 다음 문구를 씁니다. 세럼 상세페이지에 사용하고 있고, <strong>세럼 문맥에서는 자유롭게 활용하셔도 좋습니다.</strong></p>
+  <p style="font-size:1.25rem;font-weight:800;margin-bottom:.5rem;">"Feel the active. Not the burn."</p>
+  <p style="margin-bottom:0;" class="small">작동은 느껴지되, 데이지는 않는다는 뜻입니다. 브랜드 슬로건이 아니라 <strong>세럼 전용 멘트</strong>이므로 크림 소재에는 쓰지 않습니다.</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="p3">
+<header class="sh"><span class="lab">Part 3</span><h2>제품과 판매 방법</h2><span class="cont">계속 3/4</span></header>
+<div class="sbody">
+<h3>세 가지 판매 방법 <span class="badge b-free">🔓 재량</span></h3>
+
+<p>같은 제품이라도 고객에게 제안하는 방식은 하나가 아닙니다. 아래 세 가지 방법이 모두 유효하며, 어느 쪽을 쓰실지는 여러분의 판단입니다. 함께 쓰셔도 좋습니다.</p>
+
+<table>
+  <tr><th style="width:22%;">방법</th><th>어떻게 파는가</th><th style="width:26%;">어떤 고객에게</th></tr>
+  <tr><td><b>A</b> 2단계 세트</td><td>세럼 + 크림을 하나의 루틴으로</td><td>객단가를 올리고 싶을 때</td></tr>
+  <tr><td><b>B</b> 세럼 추가</td><td>쓰던 루틴 가장 앞에 세럼만 추가</td><td>쓰던 제품을 바꾸기 싫은 고객</td></tr>
+  <tr><td><b>C</b> 크림 단독</td><td>쓰던 크림을 레몬더마 크림으로 교체</td><td>부담 없이 시작하려는 고객</td></tr>
+</table>
+
+<div class="box">
+  <h4>방법 A — 2단계 세트로 판매</h4>
+  <p style="margin-bottom:0;">세럼과 크림을 하나의 2단계 시스템으로 제안합니다. "세럼이 열고, 크림이 잠근다"는 서사가 그대로 판매 논리가 됩니다. 세트 구매로 이어지고 객단가가 올라가며, 두 제품이 함께 소진되어 재고 회전이 균형을 잡습니다.</p>
+</div>
+
+<div class="box y">
+  <h4>방법 B — 기존 루틴에 추가하는 방식으로 판매</h4>
+  <p>고객이 이미 쓰고 있는 스킨케어를 <strong>바꾸지 않아도 됩니다.</strong> 세럼을 기존 루틴의 <strong>가장 앞 단계</strong>에 추가하도록 제안하는 방식입니다.</p>
+  <p>세안 후 레몬더마 세럼을 먼저 바르면, 비건 마이크로 크리스탈이 피부에 길을 순하게 열어줍니다. 그 뒤에 쓰던 에센스와 크림을 그대로 올리면 <strong>영양분이 훨씬 잘 전달됩니다.</strong> 고객은 애정하는 제품을 버리지 않아도 되고, 매장은 <strong>기존 제품을 대체하는 부담 없이 한 개를 더 팔 수 있습니다.</strong></p>
+  <p style="margin-bottom:0;" class="small">이 사용법은 레몬더마 공식 사용 순서와 이미 일치합니다 — <strong>세안 → 레몬더마 세럼 → (쓰시던 에센스·크림) → 레몬더마 크림으로 마무리.</strong> 크림까지 함께 쓰시면 가장 좋지만, 세럼 하나만으로도 루틴에 들어갑니다.</p>
+</div>
+
+<div class="box">
+  <h4>방법 C — 크림만 단독으로 판매</h4>
+  <p>쓰고 있던 크림을 레몬더마 크림으로 <strong>바꾸도록</strong> 제안하는 방식입니다. 고객은 이미 크림을 쓰고 있으니 새로운 습관을 만들 필요가 없고, 제품 하나만 교체하면 됩니다.</p>
+  <p>크림 단독 판매의 강점은 <strong>가장 부담 없이 시작할 수 있는 제품</strong>이라는 점입니다. 세럼에는 바를 때 느껴지는 가벼운 작동감이 있는데, <strong>크림에는 그 감각이 없습니다.</strong> 그러면서 <strong>미백·주름 이중 기능성(한국 식약처 등록)은 세럼과 똑같이 갖고 있습니다.</strong></p>
+  <p style="margin-bottom:.6rem;">이런 고객에게 권하십시오.</p>
+  <ul style="margin-bottom:.8rem;">
+    <li>바를 때 느껴지는 감각이 부담스러운 고객, 피부가 예민한 고객</li>
+    <li>레몬더마를 처음 써보는 고객 — 제품 하나로 브랜드를 경험하게 합니다</li>
+    <li>매일 쓰는 마무리 크림을 찾는 고객 — 가볍게 발려 메이크업 아래에도 잘 깔립니다</li>
+  </ul>
+  <p style="margin-bottom:0;" class="small">크림으로 브랜드를 먼저 경험한 고객에게 <strong>나중에 세럼을 권하는 순서</strong>도 자연스럽습니다. 방법 C로 시작해 방법 A로 넓히는 흐름입니다.</p>
+</div>
+
+<div class="box case">
+  <h4>참고 사례 — 몽골 <span class="badge b-ref">📎 참고</span></h4>
+  <p style="margin-bottom:0;">몽골에서 <strong>가장 널리 알려진 의사이자 방송인</strong>이 정확히 위 방법 B와 같은 방식으로 레몬더마를 소개하며 판매하고 있습니다. "쓰시던 걸 바꾸지 말고, 이걸 제일 먼저 바르세요"라는 제안이 <strong>전문가의 입을 통해 나갈 때</strong> 특히 잘 받아들여졌습니다. 여러분의 시장에도 이런 목소리가 있다면 함께 검토해 볼 만한 접근입니다.</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="p3">
+<header class="sh"><span class="lab">Part 3</span><h2>제품과 판매 방법</h2><span class="cont">계속 4/4</span></header>
+<div class="sbody">
+<h3>제품별 사용 가능 표현 <span class="badge b-fix">🔒 고정</span></h3>
+
+<table>
+  <tr><th>어휘</th><th style="width:16%;">세럼</th><th style="width:16%;">크림</th></tr>
+  <tr><td>레몬 엑소좀 · 1억 입자 · 제주 레몬 과즙 유래</td><td class="ok">가능</td><td class="ok">가능</td></tr>
+  <tr><td>미백·주름 이중 기능성 · 나이아신아마이드 2% · 아데노신 0.04%</td><td class="ok">가능</td><td class="ok">가능</td></tr>
+  <tr><td><b>비건 마이크로 크리스탈 · 작동감(따끔) · "Feel the active" · 전달·흡수 표현</b></td><td class="ok">가능</td><td class="no">사용 불가<br><span class="small">크림 처방에 해당 성분이 없습니다</span></td></tr>
+  <tr><td>세라마이드 장벽 · 가벼운 마감감</td><td class="no">해당 없음</td><td class="ok">가능</td></tr>
+</table>
+
+<p class="small">크림을 "진한 리커버리 크림"으로 소개하지 않는 편이 좋습니다. 실제 사용감은 가벼운 마감 크림이라, 기대와 다르면 만족도가 떨어집니다.</p>
+
+<h3>가격</h3>
+
+<p>본사 현행 판매가는 <strong>세럼 $36.58 · 크림 $36</strong>입니다(2026년 6월 조정). 일반 K-뷰티 미드 구간보다는 위, 유럽 더마코스메틱 브랜드보다는 아래에 자리합니다.</p>
+
+<p>현지 판매가와 프로모션 설계는 <span class="badge b-free">🔓 재량</span>입니다. 단 하나, <strong>가격 방어선은 지켜 주십시오</strong> <span class="badge b-fix">🔒 고정</span>.</p>
+
+<div class="box">
+  <p style="margin-bottom:0;"><strong>가격 방어선 — 세럼 $28 · 크림 $26</strong> (현지 통화 환산 기준). 이 선 아래로 내려가면 브랜드 포지션과 다른 시장의 가격 질서가 함께 흔들립니다. 이 선 위에서는 자유롭게 설계하십시오.</p>
+</div>
+</div>
+</section>
+
+<section class="slide" id="p4" data-part="p4">
+<header class="sh"><span class="lab">Part 4</span><h2>핵심 판매 포인트 5가지</h2></header>
+<div class="sbody">
+<p>레몬더마의 판매 포인트는 다섯 가지이고, <strong>각각 답하는 질문이 다릅니다.</strong> 어떤 질문에 어떤 포인트로 답하는지 구분해서 쓰는 것이 중요합니다.</p>
+
+<p>한 가지 성분으로 모든 것을 설명하려 하면 설득력이 약해집니다. 역할을 나누면 각각이 분명해집니다 — 브랜드를 왜 선택하는지는 레몬이, 효과의 근거는 식약처 등록 성분이, 사용 경험은 마이크로 크리스탈이, 신뢰는 연구 배경이 설명합니다.</p>
+
+<div class="role">
+  <div class="head">① 브랜드 정체성 <span>— 왜 이 브랜드를 선택하는가</span></div>
+  <div class="body">
+    <div><span class="k">내용</span> · 레몬 · 제주</div>
+    <div><span class="k">말하는 것</span> · 피부에 자극적일 것이라고 여겨지는 과일로 가장 진지한 스킨케어를 만든다. 브랜드명 자체가 그 선언 (Part 2)</div>
+    <div><span class="k">하지 않는 말</span> · 효능 수치, 성분 우월성 주장</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">② 효능 근거 <span>— 왜 효과가 있는가</span></div>
+  <div class="body">
+    <div><span class="k">내용</span> · 미백·주름 <strong>이중 기능성</strong> — 한국 식약처(MFDS) 등록. 근거 성분은 <strong>나이아신아마이드 2% · 아데노신 0.04%</strong>이며 <strong>세럼과 크림 모두</strong>에 동일 함량으로 들어갑니다</div>
+    <div><span class="k">말하는 것</span> · 미백과 주름 개선, 둘 다 포기하지 않아도 된다. <strong>국가 기관이 인정한 등록</strong>이라는 점이 이 포인트의 설득력입니다</div>
+    <div><span class="k">유의</span> · 효능 표현 규정은 나라마다 다릅니다 — 현지 규제를 확인하십시오</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">③ 사용 경험 <span>— 왜 작동이 느껴지는가</span></div>
+  <div class="body">
+    <div><span class="k">내용</span> · 비건 마이크로 크리스탈 10,000ppm (시장 평균의 약 2.5배)</div>
+    <div><span class="k">말하는 것</span> · "느껴지는데 자극은 없다." 고객이 제품의 작동을 직접 체감하는 부분입니다</div>
+    <div><span class="k">하지 않는 말</span> · <strong>크림에는 사용하지 않습니다</strong>(처방에 없음). 작동감은 반드시 미리 안내</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">④ 연구 배경 <span>— 왜 신뢰할 수 있는가</span></div>
+  <div class="body">
+    <div><span class="k">내용</span> · 레몬 엑소좀 1억 입자 · 지쉘바이오</div>
+    <div><span class="k">말하는 것</span> · 50개국 이상의 클리닉에 엑소좀을 공급해온 R&amp;D 회사가 만든 데일리 화장품. 입자 수는 원료사 NTA 분석 자료로 뒷받침됩니다</div>
+    <div><span class="k">하지 않는 말</span> · <strong>"엑소좀 덕분에 개선된다"는 효능 주장.</strong> 효능은 ②가 받습니다. "시술급" · "주사 대체" 같은 의료 연상 표현도 사용하지 않습니다</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">⑤ 유통 자격 <span>— 왜 특별한 제품인가</span></div>
+  <div class="body">
+    <div><span class="k">내용</span> · 한국 약국 전용 유통</div>
+    <div><span class="k">말하는 것</span> · "한국에서 약국에서만 판매하는 화장품." 일반 화장품과 구분되는 유통 자격 자체가 신뢰의 근거가 됩니다</div>
+    <div><span class="k">하지 않는 말</span> · 현지 약국에서 판매한다는 오해를 만드는 표현. "약" · "처방" · "치료제"와 결합</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="p4">
+<header class="sh"><span class="lab">Part 4</span><h2>핵심 판매 포인트 5가지</h2><span class="cont">계속 2/2</span></header>
+<div class="sbody">
+<h3>함께 활용할 수 있는 자료</h3>
+
+<ul>
+  <li><strong>제조·품질</strong> — COSMAX(글로벌 1위 화장품 ODM) · ISO 22716 GMP · EWG Green · CIR 승인</li>
+  <li><strong>시장 인증</strong> — 미국 FDA 등록 · UAE 두바이 시청 승인 · 사우디 SFDA 승인 · 태국 FDA 등록</li>
+  <li><strong>성분 근거</strong> — 엑소좀 1억 입자(원료사 NTA 분석) · 비건 마이크로 크리스탈 10,000ppm</li>
+</ul>
+
+<h3>어떻게 조합할지는 여러분이 결정합니다 <span class="badge b-free">🔓 재량</span></h3>
+
+<p>어떤 포인트를 먼저 강조할지는 시장과 고객층에 따라 다릅니다. 참고할 만한 조합을 아래에 정리했습니다 — 그대로 따르실 필요는 없습니다.</p>
+
+<div class="grid g3">
+  <div class="box"><h4>전문가 신뢰가 강한 시장</h4><p style="margin-bottom:0;">④ 연구 배경 + ⑤ 유통 자격을 앞세우고, 의사·약사·에스테틱 전문가의 목소리와 결합. (몽골 사례가 이 조합입니다)</p></div>
+  <div class="box"><h4>성분을 직접 읽는 시장</h4><p style="margin-bottom:0;">② 효능 근거(등록 성분과 함량)를 먼저 설명하고, ① 브랜드 정체성으로 기억을 남기고, ③ 사용 경험으로 체험을 만듭니다.</p></div>
+  <div class="box"><h4>체험·후기가 움직이는 시장</h4><p style="margin-bottom:0;">③ 사용 경험을 앞세워 "느껴지는데 자극은 없다"를 체험하게 하고, 후기로 ② 효능 근거를 뒷받침합니다.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="p5" data-part="p5">
+<header class="sh"><span class="lab">Part 5</span><h2>필수 준수 사항 <span class="badge b-fix">🔒 고정</span></h2></header>
+<div class="sbody">
+<p>준수 사항은 많지 않습니다. 브랜드를 통제하려는 것이 아니라 <strong>사실 관계, 법규, 브랜드 기준</strong>에 해당하는 항목만 정리했습니다. <strong>아래에 없는 모든 것은 여러분의 재량입니다.</strong></p>
+
+<h3>1. 사실과 다른 표현 (금지)</h3>
+<ul>
+  <li>크림에 마이크로 크리스탈·작동감·"Feel the active" 어휘 사용 (크림 처방에 없는 성분입니다)</li>
+  <li>달성하지 않은 순위·판매량·평점 — "No.1", "베스트셀러", "○○개 판매" 등. 플랫폼 계정 정지 사유이기도 합니다</li>
+</ul>
+
+<h3>2. 법규·플랫폼 위반 (금지)</h3>
+<ul>
+  <li>타사 등록상표 사용, 경쟁 브랜드를 직접 지목한 비교</li>
+  <li>질병을 치료하거나 낫게 한다는 표현 — 화장품이 할 수 있는 주장의 범위를 넘습니다</li>
+  <li><strong>현지 규제 레드라인</strong> — 나라마다 다릅니다. 별책 시장 브리핑을 확인하십시오</li>
+</ul>
+
+<h3>3. 브랜드 기준 (준수)</h3>
+<ul>
+  <li><strong>가격 방어선: 세럼 $28 · 크림 $26</strong> (현지 통화 환산). 이 선 위에서 프로모션은 자유입니다</li>
+  <li>비포·애프터 사진의 과장 연출 — 상처·염증·진물처럼 <strong>의학적으로 보이는 표현</strong>, 피부를 회색으로 보정한 대비. 비포 사진은 <strong>화장품으로 다룰 수 있는 수준의 피부 고민</strong>까지만</li>
+  <li>로고 변형, 브랜드 3색 훼손, 공식 제품 이미지 변형</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="p6" data-part="p6">
+<header class="sh"><span class="lab">Part 6</span><h2>디자인 가이드 <span class="badge b-fix">🔒 고정</span></h2></header>
+<div class="sbody">
+<p class="small">2026년 7월 개정 — 패키지 실물 색을 기준으로 전체 색상 체계를 다시 정의했습니다. 이전 자료의 색상값은 사용하지 마십시오.</p>
+
+<h3>브랜드 컬러</h3>
+
+<p>브랜드 기준색은 패키지 실물의 <strong>Derma Yellow</strong>입니다.</p>
+
+<div class="grid g2">
+  <div class="box y"><h4>기준색 — Derma Yellow</h4><p style="margin-bottom:0;"><code>#E6EE7A</code> · RGB 230/238/122 · <strong>PANTONE 379 U</strong><br>패키지 바탕에 쓰이는 브랜드 기준색입니다.</p></div>
+  <div class="box"><h4>패키지 글자색</h4><p style="margin-bottom:0;"><code>#59653c</code> — 패키지 텍스트 전용입니다.</p></div>
+</div>
+
+<h4>웹·디지털 적용값</h4>
+<table>
+  <tr><th style="width:34%;">용도</th><th>값</th></tr>
+  <tr><td><strong>배경 그라디언트</strong> <span class="small">(전 매체 통일)</span></td><td><code>#fefcd0</code> (위) → <code>#ffffff</code> (아래) — 크림에서 화이트로. <strong>웹·카드뉴스 구분 없이 이 값 하나만 사용합니다</strong></td></tr>
+  <tr><td>박스·카드 테두리</td><td><code>#ddea65</code></td></tr>
+  <tr><td>본문·제목·소제목</td><td><code>#000000</code> — 순블랙. <strong>회색 텍스트는 쓰지 않습니다</strong></td></tr>
+  <tr><td>카드뉴스 제목</td><td><code>#4b612d</code></td></tr>
+  <tr><td>형광펜 강조</td><td><code>#ddf746</code> 투명도 30% — <strong>글자 뒤에 깔아 주십시오</strong>(글자 위에 얹지 않습니다)</td></tr>
+  <tr><td>수치·짧은 강조 문구</td><td><code>#025200</code> — <strong>짧게만.</strong> 문단 전체에 쓰지 않습니다</td></tr>
+  <tr><td>비강조 텍스트</td><td><code>#000000</code> 투명도 65% — 눌러야 할 텍스트에</td></tr>
+  <tr><td>경고 표시</td><td><code>#e23b3b</code> — 기능 표시 전용. 브랜드 컬러가 아닙니다</td></tr>
+</table>
+
+<div class="warn">
+  <p style="margin-bottom:0;"><strong>이전 색상값은 사용하지 마십시오.</strong> 아래 색상들은 패키지 실물색과 계열이 맞지 않아 2026년 7월에 폐기되었습니다. 기존에 만든 자료는 그대로 두시고, <strong>새로 만드는 자료는 위 표의 값으로만</strong> 제작해 주십시오.</p>
+  <ul style="margin-bottom:0;">
+    <li>웜 옐로우 <code>#F7DE5A</code> · <code>#FBE96B</code> · <code>#FEF8D9</code></li>
+    <li>라임 계열 배경 <code>#eaffb7</code> → <code>#ffffff</code> — 전체 톤이 노란빛이 아니라 초록빛으로 읽힙니다</li>
+    <li>검정으로 떨어지는 배경 <code>#fefcd0</code> → <code>#000000</code></li>
+  </ul</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="p6">
+<header class="sh"><span class="lab">Part 6</span><h2>디자인 가이드 <span class="badge b-fix">🔒 고정</span></h2><span class="cont">계속 2/2</span></header>
+<div class="sbody">
+<h3>서체</h3>
+
+<table>
+  <tr><th style="width:34%;">역할</th><th>서체</th></tr>
+  <tr><td>브랜드 문구 · 큰 제목</td><td><strong>Adobe Caslon Pro</strong> (세리프) — 제목은 Semibold</td></tr>
+  <tr><td>소제목 · 본문</td><td><strong>Neue Haas Grotesk Text Pro</strong> (산세리프)</td></tr>
+  <tr><td>한국어·현지어</td><td>Pretendard 또는 Noto Sans — 자간 <code>-0.04em</code></td></tr>
+</table>
+
+<ul>
+  <li>로마자 서체는 <strong>위 두 종류만</strong> 사용합니다.</li>
+  <li>웹 자료를 만드실 때는 <code>https://use.typekit.net/ycy6gis.css</code>를 한 번 불러오시면 됩니다.</li>
+  <li>워드마크는 로고 파일의 서체이므로 <strong>다시 타이핑하지 마시고</strong> 제공된 파일을 쓰십시오.</li>
+</ul>
+
+<h3>로고</h3>
+
+<p>워드마크는 원형을 유지하고, 제공된 파일을 그대로 사용해 주십시오. SNS 이미지에서의 크기와 위치 기준은 다음과 같습니다.</p>
+
+<table>
+  <tr><th style="width:30%;">콘텐츠 성격</th><th style="width:24%;">위치</th><th>크기</th></tr>
+  <tr><td><strong>브랜드가 공표하는 내용</strong><br><span class="small">수상·인증 안내 등</span></td><td>중앙 하단</td><td>이미지 가로 폭의 <strong>1/9</strong></td></tr>
+  <tr><td><strong>정보를 읽히는 콘텐츠</strong><br><span class="small">카드뉴스 등</span></td><td>상단 중앙 또는 좌측 상단</td><td>이미지 가로 폭의 <strong>1/9</strong></td></tr>
+</table>
+
+<p class="small">판단 기준은 간단합니다 — <strong>"브랜드가 말하는 것"이면 하단에서 서명처럼 닫고, "정보를 읽히는 것"이면 상단에서 발신자를 먼저 밝힙니다.</strong></p>
+
+<h3>이미지 방향</h3>
+
+<ul>
+  <li>제품 텍스처, 레몬 단면 같은 <strong>클로즈업</strong>과 깔끔한 단색 배경(옐로우 또는 화이트)</li>
+  <li>자연스러운 시트러스 이미지와 연구실 느낌의 디테일을 함께</li>
+  <li><strong>인물·라이프스타일 컷은 최소화</strong> — 제품·성분·텍스처 중심으로</li>
+  <li>패키지 톤은 미니멀 + 시트러스. 화려한 럭셔리 연출은 하지 않습니다</li>
+</ul>
+
+<div class="box">
+  <h4>브랜드 이미지 자료 — 자유롭게 내려받아 사용하십시오 <span class="badge b-free">🔓 재량</span></h4>
+  <p style="margin-bottom:0;">로고, 제품 사진, 성분 이미지 등 공식 자료를 아래 드라이브에 모아두었습니다. <strong>별도 요청 없이 자유롭게 다운로드해 사용하셔도 됩니다.</strong><br>→ <a href="https://drive.google.com/drive/folders/1zJW4ft37gBmVTPc2yUniMUCYzCH_cyDs?usp=sharing" target="_blank" rel="noopener"><strong>브랜드 이미지 자료 드라이브 열기</strong></a></p>
+</div>
+</div>
+</section>
+
+<section class="slide" id="p7" data-part="p7">
+<header class="sh"><span class="lab">Part 7</span><h2>파트너십</h2></header>
+<div class="sbody">
+<p>레몬더마는 여러 시장에서 <strong>각기 다른 방식으로</strong> 판매되고 있습니다. 한국의 약국, 미국의 온라인 쇼핑몰, 태국의 오프라인 매장, 호주의 클리닉, 몽골의 전문가 추천 — 같은 제품이지만 잘 통하는 판매 방식은 시장마다 다릅니다.</p>
+
+<p>본사의 역할은 <strong>이 시장들을 연결하는 것</strong>입니다. 한 시장에서 효과가 있었던 방법은 다른 시장에도 참고가 됩니다. 몽골에서 잘 통한 판매 방식(방법 B)이 이 가이드북에 실린 것처럼, 여러분의 시장에서 확인한 방법도 다음 개정판에 반영됩니다.</p>
+
+<div class="quote">
+  <p style="margin-bottom:0;">여러분은 혼자 이 브랜드를 파는 것이 아닙니다. <strong>9개 진출국에서 같은 이름으로 함께 쌓고 있는 것</strong>입니다.</p>
+</div>
+
+<h3>본사 지원 안내</h3>
+
+<p>본사 마케팅팀은 여러분을 돕기 위해 있습니다. 성분이나 인증 자료가 필요하거나, 현지 캠페인을 설계하며 확인할 것이 생기면 <strong>편하게 요청해 주십시오.</strong> 함께 준비하겠습니다.</p>
+
+<div class="box y">
+  <p style="margin-bottom:0;"><strong>소재는 기다리지 않고 바로 쓰실 수 있습니다.</strong> 로고·제품 컷·성분 비주얼 등 공식 에셋은 드라이브에 열려 있으니 <strong>자유롭게 내려받아 사용하십시오.</strong><br>→ <a href="https://drive.google.com/drive/folders/1zJW4ft37gBmVTPc2yUniMUCYzCH_cyDs?usp=sharing" target="_blank" rel="noopener"><strong>브랜드 에셋 드라이브</strong></a> · <a href="https://drive.google.com/file/d/1l_xvQ85xDeYzbLkEmwCsaHpgSUk0HpnH/view?usp=drive_link" target="_blank" rel="noopener"><strong>제품 브로셔</strong></a></p>
+</div>
+
+<p>그리고 콘텐츠를 만들다가 이 가이드북에 없는 판단이 필요해지면, 그것도 알려주십시오. 그 질문이 다음 판을 더 좋게 만듭니다.</p>
+</div>
+</section>
+
+<section class="slide" id="apx" data-part="apx">
+<header class="sh"><span class="lab">부록</span><h2>참고 자료</h2></header>
+<div class="sbody">
+<h3>A. 한 장 요약 (매장·상담용)</h3>
+
+<div class="box">
+  <h4>레몬더마 핵심 요약</h4>
+  <p><strong>브랜드 슬로건</strong> · "Where Nature Meets Science" / "Vegan that works"<br>
+  <span class="small">("Feel the active. Not the burn."은 세럼 전용 멘트 — 크림·브랜드 단위에 쓰지 않음)</span></p>
+  <p><strong>핵심 논리</strong> · 중요한 것은 성분의 세기가 아니라 전달. 피부에 남는 것은 바른 양이 아니라 <strong>도달한 양</strong>.</p>
+  <p><strong>30초 안내 문구</strong> · "레몬이 피부에 자극적일 거라는 건 껍질 이야기입니다. 저희는 제주 레몬 과즙을 씁니다. 강한 걸 많이 바르는 게 아니라, 필요한 성분이 자극 없이 피부 속까지 도달하는 게 답입니다. 한국에서는 약국에서만 판매합니다."</p>
+  <p><strong>핵심 판매 포인트 5가지</strong> · ① 레몬·제주(브랜드 정체성) ② 나이아신아마이드 2%·아데노신 0.04%(효능 근거·한국 식약처 등록) ③ 비건 마이크로 크리스탈(사용 경험, 세럼 전용) ④ 엑소좀·지쉘바이오(연구 배경) ⑤ 한국 약국 전용 판매(유통 자격)</p>
+  <p><strong>판매 방법 2가지</strong> · A. 세럼+크림 2단계 세트 / B. 쓰던 루틴 <strong>가장 앞에</strong> 세럼 추가 — 기존 제품을 바꾸지 않고 한 개 더 판매</p>
+  <p><strong>꼭 미리 말할 것</strong> · 세럼의 가벼운 따끔함은 길이 열리는 감각, 5~10분 내 사라짐, 민감성은 격일 시작</p>
+  <p style="margin-bottom:0;"><strong>준수 사항</strong> · 가격 방어선 세럼 $28·크림 $26 · 크림에 감각 어휘 금지 · 미달성 순위·평점 금지 · 경쟁 브랜드 지목 비교 금지</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="apx">
+<header class="sh"><span class="lab">부록</span><h2>참고 자료</h2><span class="cont">계속 2/3</span></header>
+<div class="sbody">
+<h3>B. 자주 나오는 질문</h3>
+
+<h4>"비건이면 효과가 약한 거 아닌가요?"</h4>
+<p>비건은 원료의 출처에 관한 이야기이고, 효능은 어떤 성분이 얼마나 들어가 어떻게 전달되는지의 문제입니다. 레몬더마는 미백과 주름 개선에 대해 <strong>한국 식약처의 이중 기능성 등록</strong>을 받았습니다. 브랜드 슬로건이 "Vegan that works"인 이유가 여기 있습니다.</p>
+
+<h4>"레몬을 피부에 쓰면 자극적이지 않나요?"</h4>
+<p>레몬에서 피부를 자극할 수 있는 성분은 <strong>껍질</strong>에 몰려 있고, 과즙에는 거의 없습니다. 레몬더마는 제주 레몬의 <strong>과즙</strong>에서 온 성분만 사용합니다.</p>
+
+<h4>"따끔한데 괜찮은 건가요?"</h4>
+<p>세럼의 가벼운 따끔함은 비건 마이크로 크리스탈이 피부에 길을 여는 물리적 감각이며, 화학적 자극이 아닙니다. 보통 5~10분 안에 가라앉습니다. 예민한 피부라면 격일로 시작하시면 됩니다.</p>
+
+<h4>"엑소좀이 들어갔다는데 그게 효과를 내는 건가요?"</h4>
+<p>엑소좀은 레몬더마의 정체성이자 모회사 지쉘바이오의 연구 배경을 보여주는 성분입니다. 미백·주름 개선의 근거는 <strong>나이아신아마이드 2%와 아데노신 0.04%</strong>(식약처 등록)입니다. 두 가지를 구분해 설명하시면 신뢰가 더 올라갑니다.</p>
+
+<h4>"레몬 추출물과 레몬 엑소좀은 다른 건가요?"</h4>
+<p>다릅니다. <strong>추출물</strong>은 레몬에서 뽑아낸 액체 — 여러 성분이 섞여 녹아 있는 상태입니다. <strong>엑소좀</strong>은 그 과즙 안에 원래 있던, <strong>얇은 막이 성분을 감싼 아주 작은 입자</strong>만 따로 모은 것입니다. <strong>액체에 녹아 있는 성분</strong>과 <strong>막에 싸여 보호된 입자</strong>의 차이입니다. 막이 있어서 안의 성분이 보호되고, 그래서 레몬더마가 말하는 <strong>"전달"</strong>과 이어집니다.</p>
+
+<h4>"쓰고 있는 제품이 있는데 다 바꿔야 하나요?"</h4>
+<p>아닙니다. 세안 후 <strong>가장 먼저</strong> 레몬더마 세럼을 바르고, 쓰시던 제품을 그 위에 그대로 올리시면 됩니다. 피부에 길이 열린 상태라 뒤에 바르는 것들이 더 잘 전달됩니다.</p>
+
+<h4>"다른 K-뷰티 브랜드와 뭐가 다른가요?"</h4>
+<p>같은 K-뷰티라도 레몬더마는 <strong>한국에서 약국에서만 판매하는</strong> 더마코스메틱입니다. 그리고 모회사가 50개국 이상의 클리닉에 엑소좀을 공급해온 바이오 R&amp;D 회사입니다.</p>
+</div>
+</section>
+
+<section class="slide" data-part="apx">
+<header class="sh"><span class="lab">부록</span><h2>참고 자료</h2><span class="cont">계속 3/3</span></header>
+<div class="sbody">
+<h3>C. 용어</h3>
+
+<table>
+  <tr><th style="width:26%;">용어</th><th>뜻</th></tr>
+  <tr><td><b>엑소좀</b> (소포체 · EV)<br><span class="small">Citrus Limon Fruit Juice Vesicles</span></td><td>레몬 과즙 안에 원래 존재하는, <strong>얇은 막이 성분을 감싼 아주 작은 주머니</strong>만 골라 분리한 것. 막이 안의 성분(비타민C 등)을 보호합니다. <strong>막에 싸인 입자</strong>이기 때문에 "전달"과 이어집니다. "1억 입자"는 이 입자의 수를 센 숫자입니다</td></tr>
+  <tr><td><b>레몬 과즙 · 레몬 추출물</b><br><span class="small">Fruit Juice · Fruit Extract</span></td><td>레몬에서 <strong>뽑아낸 액체</strong>. 여러 성분이 섞인 혼합물이며 막 구조는 없습니다. 엑소좀과의 차이는 <strong>막의 유무</strong>입니다 — 추출물은 성분이 액체에 녹아 있는 상태, 엑소좀은 막에 싸인 입자만 따로 모은 것입니다</td></tr>
+  <tr><td><b>비건 마이크로 크리스탈</b></td><td>피부에 미세한 길을 열어주는 광물 유래 성분(합성 광물 유리). 동물·해양 유래가 아닙니다. 세럼에만 들어갑니다</td></tr>
+  <tr><td><b>NTA</b></td><td>나노 입자를 세는 분석법. "1억 입자"의 근거가 되는 원료사 자료입니다</td></tr>
+  <tr><td><b>MFDS 이중 기능성</b></td><td>한국 식품의약품안전처가 미백과 주름 개선 두 가지 기능성을 함께 인정한 등록</td></tr>
+  <tr><td><b>ppm</b></td><td>백만분율. 10,000ppm = 1%</td></tr>
+  <tr><td><b>지쉘바이오</b></td><td>레몬더마의 모회사. 엑소좀 연구·생산 기업으로 50개국 이상의 클리닉에 공급</td></tr>
+  <tr><td><b>COSMAX</b></td><td>레몬더마를 생산하는 글로벌 1위 화장품 ODM 제조사</td></tr>
+  <tr><td><b>K-Pharmacy</b></td><td>한국 약국 유통 채널에서 판매되는 더마코스메틱 카테고리</td></tr>
+</table>
+</div>
+</section>
+<section class="slide" data-part="end">
+  <div class="inner" style="padding-top:12vh;">
+    <span class="wm" style="font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.5rem;display:block;margin-bottom:2rem;">Lemonderma</span>
+    <h2 style="font-family:var(--serif);font-weight:600;font-size:2.2rem;line-height:1.3;">여기까지입니다.<br>함께 잘 팔아봅시다.</h2>
+    <p style="margin-top:1.6rem;">궁금한 점이나 필요한 자료가 있으면 언제든 본사 마케팅팀에 말씀해 주십시오.</p>
+    <div class="box y" style="margin-top:2rem;">
+      <p style="margin-bottom:0;"><a href="https://drive.google.com/drive/folders/1zJW4ft37gBmVTPc2yUniMUCYzCH_cyDs?usp=sharing" target="_blank" rel="noopener"><strong>브랜드 이미지 자료 드라이브</strong></a> · <a href="https://drive.google.com/file/d/1l_xvQ85xDeYzbLkEmwCsaHpgSUk0HpnH/view?usp=drive_link" target="_blank" rel="noopener"><strong>제품 브로셔</strong></a></p>
+    </div>
+    <p class="small" style="margin-top:2.5rem;">LEMONDERMA Global Distributor Marketing Guidebook — Edition 1.3 · 2026년 7월<br>발행 VDVIA Inc. 본사 마케팅팀 · 국가별 시장 브리핑은 별책으로 제공됩니다.</p>
+  </div>
+</section>
+
+<div id="shint">↓ 이 페이지는 스크롤이 더 있습니다</div>
+<div class="bar" id="bar"></div>
+<div class="ctrl"><div class="in">
+  <button id="prev">‹ 이전</button>
+  <span class="pg" id="pg"></span>
+  <button id="next">다음 ›</button>
+</div></div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')), i=0;
+  var navs=[].slice.call(document.querySelectorAll('nav a'));
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i);});
+    if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();
+    var cur=slides[i];
+    cur.scrollTop=0;
+    requestAnimationFrame(function(){
+      cur.scrollTop=0;
+      document.body.classList.toggle('tall',cur.scrollHeight>cur.clientHeight+8);
+    });
+    document.getElementById('pg').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('prev').disabled=(i===0);
+    document.getElementById('next').disabled=(i===slides.length-1);
+    document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
+    var part=slides[i].getAttribute('data-part');
+    navs.forEach(function(a){a.classList.toggle('on',a.getAttribute('data-part')===part);});
+  }
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  navs.forEach(function(a){a.onclick=function(e){
+    e.preventDefault();
+    var t=a.getAttribute('data-part');
+    for(var k=0;k<slides.length;k++){if(slides[k].getAttribute('data-part')===t){show(k);break;}}
+  };});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1);}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+    if(e.key==='Home'){show(0);} if(e.key==='End'){show(slides.length-1);}
+  });
+  show(0);
+})();
+
+/* 커서 글로우 — 은은한 빛 + 또렷한 원형 링, 부드러운 이징 추적 (마케팅 어드민 동일) */
+(function(){
+  try{ if(window.matchMedia&&matchMedia('(hover:none)').matches) return; }catch(e){}
+  var g=document.createElement('div'); g.id='cglow';
+  var r=document.createElement('div'); r.id='cring';
+  document.body.appendChild(g); document.body.appendChild(r);
+  var gx=innerWidth/2, gy=innerHeight/2, rx=gx, ry=gy, mx=gx, my=gy;
+  addEventListener('mousemove',function(e){mx=e.clientX; my=e.clientY;},{passive:true});
+  addEventListener('mousedown',function(){r.classList.add('act');});
+  addEventListener('mouseup',function(){r.classList.remove('act');});
+  (function loop(){
+    gx+=(mx-gx)*.13; gy+=(my-gy)*.13; rx+=(mx-rx)*.30; ry+=(my-ry)*.30;
+    g.style.transform='translate('+gx.toFixed(1)+'px,'+gy.toFixed(1)+'px)';
+    r.style.transform='translate('+rx.toFixed(1)+'px,'+ry.toFixed(1)+'px)';
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
