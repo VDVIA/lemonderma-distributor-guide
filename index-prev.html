@@ -44,7 +44,7 @@
     border-bottom:2px solid var(--ink);z-index:60;}
   nav .in{max-width:1000px;margin:0 auto;padding:.6rem 22px;display:flex;gap:.3rem;flex-wrap:wrap;
     font-size:.8rem;align-items:center;}
-  nav .brand{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.05rem;margin-right:.7rem;letter-spacing:0;}
+  nav .brand{height:19px;width:auto;margin-right:.9rem;display:block;flex:0 0 auto;}
   nav a{text-decoration:none;font-weight:500;padding:.28em .6em;border-radius:999px;white-space:nowrap;}
   nav a:hover{background:rgba(0,0,0,.07);}
   nav a.on{background:var(--ink);color:var(--dy);font-weight:700;}
@@ -63,7 +63,8 @@
 
   /* 커버 */
   .cover .inner{padding:11vh 0 6vh;}
-  .cover .wm{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.6rem;letter-spacing:0;display:block;margin-bottom:2.4rem;}
+  .cover .wm{height:38px;width:auto;display:block;margin-bottom:2.6rem;}
+  .wm.end{height:30px;width:auto;display:block;margin-bottom:2rem;}
   .cover h1{font-family:var(--serif);font-weight:600;font-size:3.1rem;line-height:1.18;letter-spacing:-.015em;}
   .cover .card{margin-top:3.2rem;border-top:2px solid var(--ink);padding-top:1.2rem;max-width:620px;}
   .cover .card p{margin:0;} .cover .card .m{font-size:.9rem;color:var(--mute);margin-bottom:.9rem;}
@@ -148,7 +149,7 @@
 <body>
 
 <nav><div class="in">
-    <span class="brand">Lemonderma</span>
+    <img class="brand" src="assets/lemonderma-logo.png" alt="Lemonderma">
     <a href="#p0" data-part="p0">0. 시작하기 전에</a>
     <a href="#p1" data-part="p1">1. 브랜드 메시지</a>
     <a href="#p2" data-part="p2">2. 레몬과 제주 — 브랜드 스토리</a>
@@ -161,7 +162,7 @@
 
 <section class="slide cover on" data-part="cover">
   <div class="inner">
-    <span class="wm">Lemonderma</span>
+    <img class="wm" src="assets/lemonderma-logo.png" alt="Lemonderma">
     <h1>글로벌 유통 파트너<br>마케팅 가이드북</h1>
     <div class="card">
       <p class="m">Edition 1.3 · 2026년 7월 · 한국어판<br>발행: VDVIA Inc. — LEMONDERMA 본사 마케팅팀</p>
@@ -712,7 +713,7 @@
 </section>
 <section class="slide" data-part="end">
   <div class="inner" style="padding-top:12vh;">
-    <span class="wm" style="font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.5rem;display:block;margin-bottom:2rem;">Lemonderma</span>
+    <img class="wm end" src="assets/lemonderma-logo.png" alt="Lemonderma">
     <h2 style="font-family:var(--serif);font-weight:600;font-size:2.2rem;line-height:1.3;">여기까지입니다.<br>함께 잘 팔아봅시다.</h2>
     <p style="margin-top:1.6rem;">궁금한 점이나 필요한 자료가 있으면 언제든 본사 마케팅팀에 말씀해 주십시오.</p>
     <div class="box y" style="margin-top:2rem;">
