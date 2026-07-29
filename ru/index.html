@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><!-- build:ddace5e3ced8 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>LEMONDERMA — Маркетинговое руководство для глобальных дистрибьюторов</title>
+<link rel="stylesheet" href="https://use.typekit.net/ycy6gis.css">
+<style>
+  :root{
+    --dy:#E6EE7A;              /* Derma Yellow — base brand color (package) */
+    --cream:#fefcd0;           /* background gradient top */
+    --line-hi:#ddea65; --hl:rgba(221,247,70,.30);
+    --ink:#000; --green-t:#4b612d; --green-n:#025200;
+    --mute:rgba(0,0,0,.65); --red:#e23b3b;
+    --gold:#f4dd3f;            /* cursor glow — same as marketing admin */
+    --card:#fffdf2;
+    --serif:"adobe-caslon-pro",Georgia,'Times New Roman',serif;   /* Cyrillic falls back to Georgia */
+    --sans:"neue-haas-grotesk-text",'Helvetica Neue',Arial,sans-serif; /* Cyrillic falls back to Helvetica/Arial */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:var(--sans);font-weight:400;letter-spacing:-.015em;
+    color:var(--ink);line-height:1.75;font-size:16.5px;
+    background:linear-gradient(180deg,var(--cream) 0%,#fff 62%) fixed;
+    min-height:100vh;overflow:hidden;cursor:default;
+  }
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-hi);text-decoration-thickness:2px;}
+
+  /* cursor glow — same setup as marketing admin */
+  #cglow{position:fixed;top:0;left:0;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;
+    pointer-events:none;z-index:9998;will-change:transform;
+    background:radial-gradient(circle,rgba(244,221,63,.20),rgba(244,221,63,.07) 38%,transparent 66%)}
+  #cring{position:fixed;top:0;left:0;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;
+    pointer-events:none;z-index:9999;will-change:transform;
+    border:1.5px solid rgba(160,132,12,.45);
+    box-shadow:0 0 14px 3px rgba(244,221,63,.5),inset 0 0 8px rgba(244,221,63,.35);
+    transition:width .16s ease,height .16s ease,opacity .25s,border-color .16s}
+  #cring.act{width:46px;height:46px;border-color:rgba(160,132,12,.7)}
+  @media(hover:none){#cglow,#cring{display:none}}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(254,252,208,.95);backdrop-filter:blur(10px);
+    border-bottom:2px solid var(--ink);z-index:60;}
+  nav .in{max-width:1000px;margin:0 auto;padding:.6rem 22px;display:flex;gap:.3rem;flex-wrap:wrap;
+    font-size:.8rem;align-items:center;}
+  nav .brand{height:19px;width:auto;margin-right:.9rem;display:block;flex:0 0 auto;}
+  nav a{text-decoration:none;font-weight:500;padding:.28em .6em;border-radius:999px;white-space:nowrap;}
+  nav a:hover{background:rgba(0,0,0,.07);}
+  nav a.on{background:var(--ink);color:var(--dy);font-weight:700;}
+
+  /* slides */
+  .slide{position:absolute;inset:0;padding:74px 22px 88px;display:none;overflow-y:auto;}
+  .slide.on{display:block;animation:in .32s ease;}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .inner,.sh{max-width:880px;margin:0 auto;}
+  .sh{padding:1.5rem 0 1rem;}
+  .sh .lab{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--green-n);display:block;margin-bottom:.5rem;}
+  .sh h2{font-family:var(--serif);font-weight:600;font-size:2.1rem;line-height:1.25;letter-spacing:-.01em;}
+  .sh .cont{display:inline-block;margin-top:.5rem;font-size:.8rem;font-weight:700;color:var(--mute);}
+  .sbody{max-width:880px;margin:0 auto;padding-bottom:3rem;}
+
+  /* cover */
+  .cover .inner{padding:11vh 0 6vh;}
+  .cover .wm{height:38px;width:auto;display:block;margin-bottom:2.6rem;}
+  .wm.end{height:30px;width:auto;display:block;margin-bottom:2rem;}
+  .cover h1{font-family:var(--serif);font-weight:600;font-size:3.1rem;line-height:1.18;letter-spacing:-.015em;}
+  .cover .card{margin-top:3.2rem;border-top:2px solid var(--ink);padding-top:1.2rem;max-width:620px;}
+  .cover .card p{margin:0;} .cover .card .m{font-size:.9rem;color:var(--mute);margin-bottom:.9rem;}
+  .cover .card .h{font-size:.95rem;font-weight:700;}
+
+  h3{font-family:var(--sans);font-weight:700;font-size:1.2rem;margin:2.1rem 0 .6rem;}
+  h4{font-family:var(--sans);font-weight:700;font-size:1.03rem;margin:1.5rem 0 .45rem;}
+  p{margin-bottom:1.05rem;}
+  ul,ol{margin:0 0 1.1rem 1.25rem;} li{margin-bottom:.45rem;}
+  strong{font-weight:700;}
+  em{font-style:normal;background:linear-gradient(transparent 58%,var(--hl) 58%);}
+  code{background:#f3f0cf;padding:.1em .42em;border-radius:4px;font-size:.9em;letter-spacing:0;}
+  .small{font-size:.9rem;color:var(--mute);}
+
+  .badge{display:inline-block;font-size:.8rem;font-weight:700;padding:.3em .95em;border-radius:999px;
+    vertical-align:middle;margin-left:.5em;white-space:nowrap;letter-spacing:-.01em;line-height:1.45;
+    box-shadow:0 2px 0 rgba(0,0,0,.22);}
+  .b-fix{background:#000;color:var(--dy);border:2px solid #000;}
+  .b-free{background:var(--dy);color:#000;border:2px solid #000;}
+  .b-ref{background:#fff;color:#000;border:2px dashed #000;box-shadow:none;}
+  /* larger inside slide titles */
+  .sh h2 .badge{font-size:.9rem;padding:.32em 1em;margin-left:.6em;}
+  /* badge next to sub-headings */
+  h3 .badge{font-size:.76rem;}
+  /* larger inside the legend table */
+  .legend .badge{font-size:.92rem;padding:.36em 1.1em;margin:0;}
+
+  .quote{background:var(--ink);color:#fff;border-radius:16px;padding:1.7rem 1.9rem;margin:1.6rem 0;font-size:1.12rem;}
+  .quote strong{color:var(--dy);} .quote p:last-child{margin-bottom:0;}
+
+  .box{border:2px solid var(--line-hi);border-radius:14px;padding:1.3rem 1.5rem;margin:1.5rem 0;background:#fff;}
+  .box.y{background:#fdffe8;border-color:var(--ink);}
+  .box.case{background:#fdffe8;border-left:10px solid var(--ink);}
+  .box h4{margin-top:0;} .box p:last-child,.box ul:last-child{margin-bottom:0;}
+
+  .warn{border-left:6px solid var(--red);background:#fdf1f1;padding:1rem 1.3rem;border-radius:0 12px 12px 0;margin:1.4rem 0;}
+  .warn p:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:1.3rem 0;font-size:.94rem;background:#fff;}
+  th{background:var(--ink);color:#fff;text-align:left;padding:.58em .78em;font-size:.88rem;font-weight:700;}
+  td{border-bottom:1px solid var(--line-hi);padding:.6em .78em;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .ok{color:var(--green-n);font-weight:700;}.no{color:var(--red);font-weight:700;}
+
+  .grid{display:grid;gap:1rem;margin:1.4rem 0;}
+  .g2{grid-template-columns:1fr 1fr;} .g3{grid-template-columns:repeat(3,1fr);}
+  .countries{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin:1.4rem 0;}
+  .countries div{border:2px solid var(--ink);border-radius:10px;padding:.65rem .85rem;background:#fff;}
+  .countries b{display:block;font-size:1.02rem;}
+  .role{border:2px solid var(--ink);border-radius:14px;overflow:hidden;margin-bottom:.9rem;background:#fff;}
+  .role .head{background:var(--dy);padding:.75rem 1.05rem;font-weight:700;}
+  .role .head span{font-weight:400;color:rgba(0,0,0,.7);}
+  .role .body{padding:.95rem 1.05rem;font-size:.95rem;}
+  .role .body div{margin-bottom:.45rem;} .role .body div:last-child{margin-bottom:0;}
+  .role .k{font-weight:700;color:var(--green-n);}
+  figure{margin:1.5rem 0;} figure img,figure video{width:100%;height:auto;border:2px solid var(--ink);border-radius:14px;display:block;background:#fff;}
+  /* vertical video — floated right so text flows around */
+  figure.vfloat{float:right;width:252px;margin:0 0 1rem 1.6rem;}
+  /* reserve height before metadata loads (source 608x1080) */
+  figure.vfloat video{aspect-ratio:608/1080;}
+  @media (max-width:820px){ figure.vfloat{float:none;width:100%;max-width:300px;margin:0 auto 1.2rem;} }
+  figcaption{margin-top:.5rem;}
+
+  /* bottom controls */
+  .ctrl{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+    border-top:2px solid var(--ink);z-index:60;}
+  .ctrl .in{max-width:1000px;margin:0 auto;padding:.6rem 22px;display:flex;align-items:center;gap:1rem;}
+  .ctrl button{font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:-.02em;
+    background:var(--ink);color:var(--dy);border:none;border-radius:999px;padding:.45em 1.2em;cursor:pointer;}
+  .ctrl button:disabled{opacity:.25;}
+  .ctrl .pg{flex:1;font-size:.85rem;font-weight:700;color:var(--mute);text-align:center;}
+  .bar{position:fixed;bottom:0;left:0;height:3px;background:var(--ink);z-index:61;transition:width .3s;}
+  #shint{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);z-index:59;
+    background:var(--ink);color:var(--dy);font-size:.78rem;font-weight:700;letter-spacing:-.02em;
+    padding:.3em .9em;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none;}
+  body.tall #shint{opacity:.9;}
+
+  @media(max-width:720px){
+    .g2,.g3{grid-template-columns:1fr;} .countries{grid-template-columns:1fr 1fr;}
+    .cover h1{font-size:2.1rem;} .sh h2{font-size:1.6rem;}
+    body{cursor:auto;} #glow,#dot{display:none;}
+    table{display:block;overflow-x:auto;} table td,table th{min-width:9em;}
+    nav .in{font-size:.72rem;padding:.5rem 14px;} .slide{padding:92px 14px 84px;}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+    <img class="brand" src="../assets/lemonderma-logo.png" alt="Lemonderma">
+    <a href="#p0" data-part="p0">0. Перед началом</a>
+    <a href="#p1" data-part="p1">1. История бренда</a>
+    <a href="#p2" data-part="p2">2. Продукты</a>
+    <a href="#p3" data-part="p3">3. Как продавать</a>
+    <a href="#p4" data-part="p4">4. Ключевые аргументы</a>
+    <a href="#p5" data-part="p5">5. Дизайн-гайд</a>
+    <a href="#p6" data-part="p6">6. Партнёрство</a>
+    <a href="#apx" data-part="apx">Приложение</a>
+</div></nav>
+
+<section class="slide cover on" data-part="cover">
+  <div class="inner">
+    <img class="wm" src="../assets/lemonderma-logo.png" alt="Lemonderma">
+    <h1>Маркетинговое руководство<br>для глобальных дистрибьюторов</h1>
+    <div class="card">
+      <p class="m">Издание 1.0 · Июль 2026 · Русская версия<br>Выпущено: VDVIA Inc. — центральная маркетинговая команда LEMONDERMA</p>
+      <p class="h">→ Листайте стрелкой вправо на клавиатуре или кнопкой <strong>Далее</strong> внизу.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="p0" data-part="p0">
+<header class="sh"><span class="lab">Part 0</span><h2>Перед началом</h2></header>
+<div class="sbody">
+<p>LEMONDERMA — корейский веганский дермакосметический бренд. Он переносит в повседневный уход за кожей исследования экзосом материнской компании <strong>Zishel Bio</strong>, которая поставляет их в клиники более чем 50 стран; производство ведёт <strong>COSMAX</strong> — ODM-производитель косметики №1 в мире.</p>
+
+<h3>Страны присутствия LEMONDERMA</h3>
+
+<div class="countries">
+  <div><b>🇰🇷 Южная Корея</b></div>
+  <div><b>🇺🇸 США</b></div>
+  <div><b>🇦🇪 ОАЭ</b></div>
+  <div><b>🇷🇺 Россия</b></div>
+  <div><b>🇹🇭 Таиланд</b></div>
+  <div><b>🇲🇳 Монголия</b></div>
+  <div><b>🇦🇺 Австралия</b></div>
+  <div><b>🇯🇵 Япония</b></div>
+  <div><b>🇸🇦 Саудовская Аравия</b></div>
+</div>
+
+<h3>Как читать это руководство</h3>
+
+<p>Эта книга — не инструкция с готовыми ответами. <strong>Ядро бренда защищает головной офис, а что работает на вашем рынке — лучше всех знаете вы.</strong> Поэтому каждый пункт помечен одним из трёх знаков.</p>
+
+<table class="legend">
+  <tr><th style="width:26%;">Знак</th><th>Значение</th></tr>
+  <tr><td><span class="badge b-fix">🔒 Фиксировано</span></td><td>Действует одинаково на всех рынках. Если нужны изменения — согласуйте с головным офисом.</td></tr>
+  <tr><td><span class="badge b-free">🔓 На ваше усмотрение</span></td><td><strong>Решаете вы.</strong> Головной офис не вмешивается.</td></tr>
+  <tr><td><span class="badge b-ref">📎 Справочно</span></td><td>Информация, проверенная головным офисом на других рынках. Используйте как справочный материал.</td></tr>
+</table>
+
+</div>
+</section>
+
+<section class="slide" id="p1" data-part="p1">
+<header class="sh"><span class="lab">Part 1</span><h2>История бренда <span class="badge b-fix">&#128274; Фиксировано</span></h2></header>
+<div class="sbody">
+<div class="quote" style="font-family:var(--serif);font-size:1.5rem;line-height:1.35;">
+  <p style="margin-bottom:.6rem;">«Можно ли донести живую энергию природы до кожи <strong>силой науки</strong>?»</p>
+  <p class="small" style="color:rgba(255,255,255,.6);margin-bottom:0;font-family:var(--sans);">"How can we deliver nature's vitality to the skin with the power of science?"</p>
+</div>
+
+<figure style="margin:1.3rem 0;">
+  <img src="../assets/brand-hero.jpg" alt="Срез лимона Чеджу и капли масла — образ бренда, где встречаются природа и наука">
+</figure>
+
+<p>LEMONDERMA начался с этого вопроса.</p>
+
+<p>Мы начали с чистой, светлой энергии <strong>экзосом лимона с острова Чеджу</strong> и добавили собственную технологию <strong>Purimax&trade;</strong>, чтобы кожа выглядела более ясной, здоровой и полной жизни. Затем добавили мягкие <strong>веганские микрокристаллы</strong>, помогающие впитыванию, — и каждая формула работает как <em>маленький клинический уход у вас дома</em>: эффективно, бережно к коже и дружелюбно к планете.</p>
+
+<p><strong>LEMONDERMA — это не просто уход за кожей.</strong> Это место, где природа встречается с наукой, где инновации становятся простыми в использовании, а кожа день за днём обретает уверенность.</p>
+
+<div class="grid g2">
+  <div class="box y"><h4>"Where Nature Meets Science"</h4><p style="margin-bottom:0;">Слоган бренда — ось технологий и ингредиентов.</p></div>
+  <div class="box y"><h4>"Vegan that works"</h4><p style="margin-bottom:0;">Слоган бренда — ось доказанной эффективности.</p></div>
+</div>
+
+<p class="small">Уход за кожей на экзосомах лимона Чеджу &mdash; <strong>результат клинического уровня у вас дома.</strong><br><span style="opacity:.7;">Exosome-powered skincare with Jeju Lemon &mdash; delivering clinic-level results at home.</span></p>
+
+<figure class="vfloat">
+  <video src="../assets/pharmacy-film.mp4" autoplay loop muted playsinline preload="auto"></video>
+  <figcaption class="small" style="margin-top:.5rem;margin-bottom:0;">LEMONDERMA на полке корейской аптеки.</figcaption>
+</figure>
+
+<h3 style="margin-top:0;">Категория &mdash; K-Pharmacy Vegan Dermacosmetic</h3>
+<p>LEMONDERMA создан не как обычная косметика, а как <strong>дермакосметика</strong>, и в Корее <strong>продаётся только в аптеках.</strong> Именно этот канал дистрибуции отличает бренд от обычной K-beauty косметики. Говоря об этом за рубежом, обязательно добавляйте уточнение <strong>«в Корее»</strong>.</p>
+
+<h3>Тон &mdash; Premium Gentle Science</h3>
+<ul style="margin-bottom:0;">
+  <li>Профессионально, но спокойно. Без преувеличений — говорим об ощущениях и заметных изменениях.</li>
+  <li><strong>Честность — часть идентичности.</strong> О лёгком ощущении при нанесении сыворотки мы предупреждаем заранее, а не скрываем его &mdash; скрытое рождает чувство обмана, сказанное заранее рождает доверие.</li>
+</ul>
+<div style="clear:both;"></div>
+</div>
+</section>
+
+
+
+<section class="slide" id="p2" data-part="p2">
+<header class="sh"><span class="lab">Part 2</span><h2>Продукт &mdash; Сыворотка <span class="badge b-fix">&#128274; Фиксировано</span></h2></header>
+<div class="sbody">
+<p class="small">Здесь дословно воспроизведена структура A+ контента с Amazon. Создавая карточку товара для своего рынка, используйте этот порядок и формулировки как основу.</p>
+
+<figure style="margin:1.2rem 0;">
+  <img src="../assets/serum-shot.jpg" alt="Lemonshot 150 Exo:Booster Serum — фото продукта">
+</figure>
+
+<div class="quote">
+  <p style="font-size:1.45rem;font-family:var(--serif);margin-bottom:.35rem;">Почувствуйте действие — без жжения.</p>
+  <p class="small" style="color:var(--dy);margin-bottom:.7rem;">Feel the active. Not the burn.</p>
+  <p style="margin-bottom:0;font-size:1.02rem;">Веганское сияние, разглаживающее даже мелкие морщинки, — достаточно мягкое для ежедневного применения.<br><span class="small" style="color:rgba(255,255,255,.65);">A vegan glow serum that smooths fine lines, gentle enough for every day.</span></p>
+</div>
+
+<p><strong>Lemonshot 150 Exo:Booster Serum</strong> · 50ml / 1.69 fl.oz · <strong>Longevity | Radiance | Pore tightening</strong></p>
+
+<div class="grid g2" style="margin-bottom:1.2rem;">
+  <div class="box"><h4>4 знака доверия</h4><p style="margin-bottom:0;">MFDS: осветление + разглаживание морщин · EWG Green · Веган · Только аптеки (Корея)<br><span class="small">MFDS Brightening + Anti-Wrinkle (KR) · EWG Green · Vegan · Pharmacy-only (KR)</span></p></div>
+  <div class="box y"><h4>Видимые изменения <span class="small">Visible results</span></h4><p style="margin-bottom:0;"><strong>+21.4%</strong> BRIGHTENING · <strong>+18.7%</strong> ANTI-WRINKLE · <strong>+31.8%</strong> PORE TIGHTENING<br><span class="small">n=21 · 10 дней · используйте вместе с фото «до/после»</span></p></div>
+</div>
+
+<h3>Что каждый ингредиент делает для кожи <span class="small">What each does for you</span></h3>
+<table>
+  <tr><th style="width:27%;">Ингредиент</th><th>Как объяснить покупателю</th></tr>
+  <tr><td><b>VEGAN MICROCRYSTAL</b></td><td>Мягко открывает путь, чтобы сыворотка проникала глубже. Вы чувствуете, что она работает, — но никакого жжения.</td></tr>
+  <tr><td><b>LEMON EXOSOME</b></td><td>«Посланники» лимона Чеджу, которые подсказывают коже сиять и восстанавливать упругость.</td></tr>
+  <tr><td><b>NIACINAMIDE 2%</b></td><td>Выравнивает тон, визуально сужает поры и сохраняет кожу спокойной.</td></tr>
+  <tr><td><b>ADENOSINE</b></td><td>Разглаживает видимость мелких морщин; достаточно мягок для чувствительной кожи.</td></tr>
+  <tr><td><b>WHAT WE LEFT OUT</b></td><td>Без ретинола. Без AHA/BHA. Без ингредиентов морского происхождения. Сильная формула, бережная к чувствительной коже.</td></tr>
+</table>
+
+<h3>Как это работает — и не больно? <span class="small">How it works without hurting</span></h3>
+<div class="box y"><p style="margin-bottom:0;">&#9312; Мягко открывает каналы впитывания &rarr; &#9313; Сияние проникает глубже &rarr; &#9314; Покалывание = идёт впитывание, это не боль<br><span class="small">1) Eases the path &nbsp; 2) Glow goes deeper &nbsp; 3) Tingle = absorbing, not hurting</span></p></div>
+
+<figure style="margin:1.2rem 0;">
+  <img src="../assets/serum-mech.jpg" alt="Принцип действия — строение слоёв кожи и сравнение спикул (спикулы морской губки vs веганские микрокристаллы LEMONDERMA)">
+  <figcaption class="small" style="margin-top:.5rem;margin-bottom:0;"><strong>Почему можно пользоваться каждый день.</strong> Обычные спикулы из морской губки имеют неровную форму и сильнее раздражают кожу. Веганские микрокристаллы LEMONDERMA — это <strong>ровные цилиндры одинаковой формы</strong>, поэтому раздражение минимально &mdash; если спрашивают о раздражении, покажите это изображение.</figcaption>
+</figure>
+
+<h3>Что пишут в отзывах <span class="small">What users say</span></h3>
+<ul style="margin-bottom:0;">
+  <li>«Я уже махнула рукой на веганский уход — считала его бесполезным. <em>Это первое средство, от которого кожа реально стала светлее</em> и чище».</li>
+  <li>«Ретинол разрушил мой барьер, и все активы жгли. Это первое средство, которое даёт <em>настоящее сияние без малейшего жжения</em>».</li>
+  <li>«Моя кожа реагирует на всё. Три недели ежедневного применения — <em>ни одного раздражения</em>».</li>
+  <li>«<em>Мелкие морщинки вокруг глаз заметно смягчились</em>, кожа стала более упругой».</li>
+  <li>«При нанесении действительно <em>чувствуешь, что оно работает</em>: лёгкое покалывание, но никогда не резкое».</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" data-part="p2">
+<header class="sh"><span class="lab">Part 2</span><h2>Продукт &mdash; Крем <span class="badge b-fix">&#128274; Фиксировано</span></h2><span class="cont">продолжение 2/2</span></header>
+<div class="sbody">
+<figure style="margin:0 0 1.2rem;">
+  <img src="../assets/cream-shot.jpg" alt="Lemonshot Exo:Booster Cream — фото продукта">
+</figure>
+
+<div class="quote">
+  <p style="font-size:1.45rem;font-family:var(--serif);margin-bottom:.35rem;">Успокоить и запечатать сияние. Невесомо.</p>
+  <p class="small" style="color:var(--dy);margin-bottom:.7rem;">Seal in calm. Seal in glow.</p>
+  <p style="margin-bottom:0;font-size:1.02rem;">Плотные кремы душат кожу, лёгкие — оставляют чувство стянутости. Этот невесомо укрывает: успокаивает, наполняет и делает кожу упругой — без раздражения.<br><span class="small" style="color:rgba(255,255,255,.65);">Too rich clogs and too light leaves skin tight. This weightless seal calms reactive skin and firms it, no sting.</span></p>
+</div>
+
+<p><strong>Lemonshot Exo:Booster Cream</strong> · 50ml / 1.69 fl.oz · <strong>Anti-wrinkle | Skin Barrier | Brightening</strong></p>
+
+<div class="grid g2" style="margin-bottom:1.2rem;">
+  <div class="box"><h4>6 знаков доверия</h4><p style="margin-bottom:0;">Только аптеки Кореи · Функциональность MFDS: осветление + разглаживание морщин · EWG Green · Made in Korea, GMP · 100% веган · Мягкий антивозрастной уход</p></div>
+  <div class="box y"><h4>Видимые изменения <span class="small">Visible results</span></h4><p style="margin-bottom:0;"><strong>+18.7%</strong> FIRMNESS · <strong>+23.4%</strong> BRIGHTENING · <strong>+12.6%</strong> TEXTURE<br><span class="small">n=21 · 10 дней</span></p></div>
+</div>
+
+<h3>Что делает каждый ингредиент <span class="small">What each does for you</span></h3>
+<table>
+  <tr><th style="width:27%;">Ингредиент</th><th>Как объяснить покупателю</th></tr>
+  <tr><td><b>CERAMIDE NP</b></td><td>Восполняет барьер: кожа становится упругой и эластичной, даже когда с возрастом теряет собственные керамиды.</td></tr>
+  <tr><td><b>PANTHENOL</b></td><td>Успокаивает уставшую, реактивную кожу и запечатывает мягкий, «подушечный» комфорт.</td></tr>
+  <tr><td><b>NIACINAMIDE 2%</b></td><td>Осветляет неровности тона — цвет лица становится чище и сияет.</td></tr>
+  <tr><td><b>LEMON EXOSOME</b></td><td>Свежее «стеклянное» сияние изнутри. Фирменный финиш LEMONDERMA.</td></tr>
+  <tr><td><b>NO RETINOL · NO AHA/BHA · NO MARINE · 100% VEGAN</b></td><td>Мягкий антивозрастной уход без жжения; чистая формула для реактивной кожи.</td></tr>
+</table>
+
+<h3>Почему упругость — без раздражения <span class="small">Why it firms without sting</span></h3>
+<div class="box y">
+  <p>Крем <strong>не проталкивает</strong> ингредиенты внутрь кожи. Он создаёт на её поверхности тонкую плёнку и <strong>защищает, укрывая</strong>. Поэтому раздражения нет.</p>
+  <p style="margin-bottom:0;">Роли ингредиентов распределены так:</p>
+  <ul style="margin-bottom:0;margin-top:.5rem;">
+    <li><strong>Керамиды</strong> &mdash; заполняют пустоты в кожном барьере, делая его крепким</li>
+    <li><strong>Пантенол</strong> &mdash; удерживает влагу, не давая ей испаряться, и успокаивает раздражённую кожу</li>
+    <li><strong>Лимонные экзосомы</strong> &mdash; добавляют фирменное чистое сияние бренда</li>
+  </ul>
+</div>
+
+<h3>В чём отличие <span class="small">What makes it different</span></h3>
+<table>
+  <tr><th></th><th>Плотный крем</th><th>Гель-увлажнитель</th><th>Крем с сильными активами</th><th>Lemonderma</th></tr>
+  <tr><td>Не щиплет</td><td class="ok">&#10003;</td><td class="ok">&#10003;</td><td class="no">&#10007;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>Нет стянутости</td><td class="ok">&#10003;</td><td class="no">&#10007;</td><td>&#9651;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>Не жирнит (non-greasy)</td><td class="no">&#10007;</td><td class="ok">&#10003;</td><td>&#9651;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>Макияж ложится ровно</td><td class="no">&#10007;</td><td class="ok">&#10003;</td><td>&#9651;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>Ежедневно даже для чувствительной кожи</td><td>&#9651;</td><td>&#9651;</td><td class="no">&#10007;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>Упругость и плотность (анти-эйдж)</td><td>&#9651;</td><td class="no">&#10007;</td><td class="ok">&#10003;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>Сияние</td><td>&#9651;</td><td>&#9651;</td><td>&#9651;</td><td class="ok">&#10003;</td></tr>
+  <tr><td>100% веган</td><td>&#9651;</td><td>&#9651;</td><td>&#9651;</td><td class="ok">&#10003;</td></tr>
+</table>
+
+<h3>Что пишут в отзывах <span class="small">What buyers say</span></h3>
+<ul>
+  <li>«Моя кожа месяцами была красной и реактивной. Этот крем <em>успокоил её за неделю</em>».</li>
+  <li>«Через несколько недель кожа честно <em>выглядит наполненной и стала упругее</em>».</li>
+  <li>«Он такой лёгкий, что просто исчезает, но кожа <em>остаётся увлажнённой и комфортной весь день</em>».</li>
+  <li>«Даёт то самое <em>«стеклянное» сияние изнутри</em> — и ни намёка на жирность».</li>
+  <li>«Обычно отдушки вызывают у меня высыпания, но эта свежая цитрусовая нота <em>ни разу не раздражила мою чувствительную кожу</em>».</li>
+</ul>
+
+
+
+<p class="small" style="margin-top:1.2rem;">Полные составы, характеристики продуктов и сертификаты собраны в брошюре. &rarr; <a href="https://drive.google.com/file/d/15FxIse-pc9wFNDUD8uSpL3U0518tDKbA/view?usp=drive_link" target="_blank" rel="noopener"><strong>Открыть брошюру LEMONDERMA</strong></a></p>
+</div>
+</section>
+
+<section class="slide" id="p3" data-part="p3">
+<header class="sh"><span class="lab">Part 3</span><h2>Как продавать <span class="badge b-free">&#128275; На ваше усмотрение</span></h2></header>
+<div class="sbody">
+<p>Один и тот же продукт можно предлагать покупателю по-разному. Все три способа ниже рабочие; какой использовать — решаете вы. Можно сочетать их между собой.</p>
+
+<table>
+  <tr><th style="width:22%;">Способ</th><th>Как продаём</th><th style="width:26%;">Каким покупателям</th></tr>
+  <tr><td><b>A</b> Набор из 2 шагов</td><td>Сыворотка + крем как один ритуал</td><td>Когда нужно поднять средний чек</td></tr>
+  <tr><td><b>B</b> Добавить сыворотку</td><td>Только сыворотка — первым шагом в привычном уходе</td><td>Тем, кто не хочет менять свои средства</td></tr>
+  <tr><td><b>C</b> Только крем</td><td>Заменить привычный крем на крем LEMONDERMA</td><td>Тем, кто хочет начать без риска</td></tr>
+</table>
+
+<div class="box">
+  <h4>Способ A &mdash; продажа набором из 2 шагов</h4>
+  <p>Предлагайте сыворотку и крем как единую систему из двух шагов. Формула «сыворотка открывает — крем запечатывает» сама по себе становится логикой продажи. Покупают набором, средний чек растёт, а оба продукта расходуются вместе — оборот запасов остаётся сбалансированным.</p>
+  <figure style="margin:0;">
+    <img src="../assets/method-a.jpg" alt="Serum Opens, Cream Seals — схема ритуала из 2 шагов">
+    <figcaption class="small" style="margin-top:.5rem;margin-bottom:0;">Готовое изображение с ритуалом из 2 шагов — можно сразу показывать покупателю.</figcaption>
+  </figure>
+</div>
+
+<div class="box y">
+  <h4>Способ B &mdash; продажа как дополнение к привычному уходу</h4>
+  <p>Покупателю <strong>не нужно менять</strong> средства, которыми он уже пользуется. Вы предлагаете добавить сыворотку <strong>самым первым шагом</strong> в его привычный уход.</p>
+  <p>Если после умывания первой нанести сыворотку LEMONDERMA, веганские микрокристаллы мягко откроют коже путь. Затем покупатель наносит свои привычные эссенцию и крем — и <strong>питательные вещества доставляются заметно лучше.</strong> Покупателю не приходится отказываться от любимых средств, а магазин <strong>продаёт ещё один продукт, ничего не вытесняя с полки покупателя.</strong></p>
+  <figure style="margin:0 0 .8rem;">
+    <video src="../assets/method-b.mp4" autoplay loop muted playsinline preload="metadata"></video>
+    <figcaption class="small" style="margin-top:.5rem;margin-bottom:0;">Как ингредиенты доставляются в кожу &mdash; показывайте это видео, объясняя принцип «нанесённое первым помогает следующему впитаться лучше».</figcaption>
+  </figure>
+  <p style="margin-bottom:0;" class="small">Этот порядок уже совпадает с официальной схемой применения LEMONDERMA &mdash; <strong>умывание &rarr; сыворотка LEMONDERMA &rarr; (ваши привычные эссенция и крем) &rarr; финиш кремом LEMONDERMA.</strong></p>
+</div>
+
+<div class="box">
+  <h4>Способ C &mdash; продажа только крема</h4>
+  <p>Вы предлагаете покупателю <strong>заменить</strong> его привычный крем на крем LEMONDERMA. Крем у него уже есть в ритуале — не нужно строить новую привычку, достаточно заменить один продукт.</p>
+  <p>Сила продажи одного крема в том, что это <strong>самый лёгкий вход в бренд</strong>. У сыворотки при нанесении есть лёгкое ощущение действия, а <strong>у крема этого ощущения нет вовсе.</strong> При этом <strong>двойная функциональность «осветление + разглаживание морщин» (регистрация MFDS, Корея) у крема точно такая же, как у сыворотки.</strong></p>
+  <figure style="margin:0 0 .8rem;">
+    <video src="../assets/method-c.mp4" autoplay loop muted playsinline preload="metadata"></video>
+    <figcaption class="small" style="margin-top:.5rem;margin-bottom:0;">Крем невесомо ложится на кожу и запечатывает её &mdash; видео показывает принцип «не проталкивает, а укрывает и запечатывает».</figcaption>
+  </figure>
+  <p style="margin-bottom:0;" class="small">Покупателю, который познакомился с брендом через крем, естественно <strong>позже предложить сыворотку</strong>. Это путь от способа C к способу A.</p>
+</div>
+
+<div class="box case">
+  <h4>Кейс для справки &mdash; Монголия <span class="badge b-ref">&#128206; Справочно</span></h4>
+  <p style="margin-bottom:0;">В Монголии <strong>самый известный в стране врач и телеведущий</strong> представляет и продаёт LEMONDERMA ровно по способу B. Предложение «не меняйте свои средства — просто наносите это первым» воспринимается особенно хорошо, <strong>когда звучит из уст эксперта</strong>. Если на вашем рынке есть такой голос, этот подход стоит рассмотреть.</p>
+</div>
+</div>
+</section>
+
+<section class="slide" data-part="p3">
+<header class="sh"><span class="lab">Part 3</span><h2>Как продавать &mdash; формулировки и цены</h2><span class="cont">продолжение 2/2</span></header>
+<div class="sbody">
+<h3>Допустимые формулировки по продуктам <span class="badge b-fix">&#128274; Фиксировано</span></h3>
+
+<p class="small">Достаточно различать три колонки ниже. <strong>Средняя колонка — самая важная</strong> &mdash; этого ингредиента нет в формуле крема, и в материалах о креме такие формулировки будут противоречить фактам.</p>
+
+<div class="grid g3">
+  <div class="box y" style="border-color:var(--ink);">
+    <h4 style="margin-bottom:.6rem;">Оба продукта <span class="badge b-free" style="margin-left:0;">&#10003; Свободно</span></h4>
+    <p style="margin-bottom:0;font-size:.95rem;">
+      Лимонные экзосомы · 100 млн частиц<br>
+      Из сока лимона Чеджу<br>
+      Двойная функциональность: осветление + морщины<br>
+      Ниацинамид 2%<br>
+      Аденозин 0.04%
+    </p>
+  </div>
+  <div class="box" style="border-color:var(--red);border-width:3px;">
+    <h4 style="margin-bottom:.6rem;color:var(--red);">Только сыворотка <span class="badge b-fix" style="margin-left:0;background:var(--red);color:#fff;">&#10007; Для крема запрещено</span></h4>
+    <p style="margin-bottom:.5rem;font-size:.95rem;">
+      Веганские микрокристаллы<br>
+      Ощущение действия · покалывание<br>
+      «Feel the active»<br>
+      Формулировки о доставке и впитывании
+    </p>
+    <p style="margin-bottom:0;" class="small"><strong>В формуле крема этого ингредиента нет.</strong></p>
+  </div>
+  <div class="box" style="border-color:var(--ink);">
+    <h4 style="margin-bottom:.6rem;">Только крем</h4>
+    <p style="margin-bottom:0;font-size:.95rem;">
+      Керамидный барьер<br>
+      Невесомый финиш<br>
+      Успокоение · запечатывание
+    </p>
+  </div>
+</div>
+
+<div class="warn">
+  <p style="margin-bottom:0;">Не представляйте крем как <strong>«плотный восстанавливающий крем»</strong>. По ощущениям это лёгкий финишный крем, и если ожидание не совпадёт с реальностью, удовлетворённость упадёт.</p>
+</div>
+
+<h3>Цены &mdash; одним взглядом</h3>
+
+<table>
+  <tr><th style="width:22%;"></th><th>Сыворотка</th><th>Крем</th><th style="width:30%;">Кто решает</th></tr>
+  <tr>
+    <td><strong>Текущая цена головного офиса</strong><br><span class="small">скорректирована в июне 2026</span></td>
+    <td style="font-size:1.15rem;"><strong>$36.58</strong></td>
+    <td style="font-size:1.15rem;"><strong>$36</strong></td>
+    <td class="small">Справочно &mdash; ориентир головного офиса</td>
+  </tr>
+  <tr style="background:#fff8f8;">
+    <td><strong style="color:var(--red);">Минимальная цена</strong><br><span class="small">ниже этой линии нельзя</span></td>
+    <td style="font-size:1.15rem;color:var(--red);"><strong>$28</strong></td>
+    <td style="font-size:1.15rem;color:var(--red);"><strong>$26</strong></td>
+    <td class="small"><span class="badge b-fix" style="margin-left:0;">&#128274; Фиксировано</span> головной офис</td>
+  </tr>
+  <tr>
+    <td><strong>Локальная цена · промо</strong></td>
+    <td colspan="2">Всё, что <strong>выше</strong> минимальной линии, — проектируйте свободно</td>
+    <td class="small"><span class="badge b-free" style="margin-left:0;">&#128275; На ваше усмотрение</span> вы</td>
+  </tr>
+</table>
+
+<p class="small" style="margin-bottom:0;">Если опуститься ниже минимальной линии (в пересчёте на локальную валюту), пошатнутся и позиция бренда, и ценовой порядок на других рынках.</p>
+</div>
+</section>
+
+<section class="slide" id="p4" data-part="p4">
+<header class="sh"><span class="lab">Part 4</span><h2>4 ключевых аргумента продаж</h2></header>
+<div class="sbody">
+<p>Перед покупкой покупатель мысленно задаёт себе, как правило, четыре вопроса. Четыре аргумента ниже отвечают на них по порядку &mdash; <strong>это работает? &rarr; это не раздражает? &rarr; есть доказательства? &rarr; этому бренду можно доверять?</strong></p>
+
+<div class="role">
+  <div class="head">&#9312; Видимый результат <span>&mdash; «Это действительно работает?»</span></div>
+  <div class="body">
+    <div><span class="k">Что говорим</span> · <strong>Изменения, измеренные за 10 дней.</strong> Сыворотка &mdash; яркость/тёмные пятна <strong>+21.4%</strong> · поры <strong>+31.8%</strong> · морщины <strong>+18.7%</strong>. Крем &mdash; упругость <strong>+18.7%</strong> · яркость <strong>+23.4%</strong> · текстура <strong>+12.6%</strong> <span class="small">(n=21 · 10 дней)</span></div>
+    <div><span class="k">Материалы в пару</span> · фото «до/после» (предоставляет бренд)</div>
+    <div><span class="k">Внимание</span> · правила указания цифр различаются по странам. Сверьтесь с местным регулированием</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">&#9313; И при этом не щиплет <span>&mdash; «Если сильное — разве не раздражает?»</span></div>
+  <div class="body">
+    <div><span class="k">Что говорим</span> · <strong>Веганские микрокристаллы 10 000 ppm</strong> &mdash; примерно <strong>в 2,5 раза</strong> выше обычной концентрации аналогов на спикулах из морской губки (около 4 000 ppm). Концентрация выше — а формула остаётся <strong>достаточно мягкой для ежедневного применения</strong></div>
+    <div><span class="k">Почему мягко</span> · это не спикулы из морской губки (сильное раздражение), а <strong>100% веганские кристаллы (низкое раздражение)</strong>. Поэтому и работает формула «чувствуется — но не раздражает»</div>
+    <div><span class="k">Вдобавок</span> · No retinol · No AHA/BHA · No marine &mdash; в формуле нет того, чего избегает чувствительная кожа</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">&#9314; За этим стоит наука <span>&mdash; «На чём это основано?»</span></div>
+  <div class="body">
+    <div><span class="k">Что говорим</span> · <strong>Технология Purimax&trade;</strong> &mdash; технология очистки, созданная за десятилетия исследований экзосом. Она выделяет экзосомы с <strong>высочайшей чистотой и стабильностью</strong>, сохраняет активные молекулы и обеспечивает постоянство качества <strong>контролем фармацевтического уровня</strong></div>
+    <div><span class="k">Цифры</span> · лимонные экзосомы — <strong>100 млн частиц</strong> · производственная мощность Zishel Bio — <strong>120 млн флаконов экзосом</strong> · <strong>9</strong> научных публикаций · <strong>400</strong> исследователей · клиники и спа в <strong>40 странах</strong> · производит <strong>COSMAX</strong> (ODM-производитель косметики №1 в мире по выручке 2024 года)</div>
+    <div><span class="k">Чего не говорим</span> · утверждений вида «улучшение — благодаря экзосомам» &mdash; доказательства эффективности несёт аргумент &#9312;</div>
+  </div>
+</div>
+
+<div class="role">
+  <div class="head">&#9315; Продукт не для всех прилавков <span>&mdash; «Почему этому бренду можно доверять?»</span></div>
+  <div class="body">
+    <div><span class="k">Что говорим</span> · это дермакосметика, которая <strong>в Корее продаётся только в аптеках</strong>. Сам канал дистрибуции, отделяющий её от обычной косметики, — уже основание для доверия</div>
+    <div><span class="k">Сертификаты</span> · регистрация MFDS (Корея): <strong>двойная функциональность «осветление + морщины»</strong> · &#127482;&#127480; FDA US · &#127462;&#127466; Dubai Municipality · &#127480;&#127462; SFDA KSA · &#127481;&#127469; FDA TH · EWG Green · Made in Korea GMP</div>
+    <div><span class="k">Позиция</span> · брендов, сильных одновременно по оси <strong>«веган»</strong> и по оси <strong>«дерма-клиника»</strong>, очень мало &mdash; на карте позиционирования в брошюре в правом верхнем углу только LEMONDERMA</div>
+  </div>
+</div>
+
+<p class="small" style="margin-bottom:0;">Все четыре аргумента взяты из брошюры бренда и карточки на Amazon. Можно менять порядок или использовать только часть &mdash; <strong>что ставить на первое место, решаете вы, исходя из рынка и аудитории</strong> <span class="badge b-free">&#128275; На ваше усмотрение</span>. &rarr; <a href="https://drive.google.com/file/d/15FxIse-pc9wFNDUD8uSpL3U0518tDKbA/view?usp=drive_link" target="_blank" rel="noopener">Открыть брошюру</a> · <a href="https://drive.google.com/drive/folders/1zJW4ft37gBmVTPc2yUniMUCYzCH_cyDs?usp=sharing" target="_blank" rel="noopener">Медиатека</a></p>
+</div>
+</section>
+
+<section class="slide" id="p5" data-part="p5">
+<header class="sh"><span class="lab">Part 5</span><h2>Дизайн-гайд <span class="badge b-fix">&#128274; Фиксировано</span></h2></header>
+<div class="sbody">
+<p class="small">Редакция июля 2026 — вся цветовая система переопределена по фактическому цвету упаковки. Не используйте значения цветов из прежних материалов.</p>
+
+<h3>Цвета бренда</h3>
+
+<p>Базовый цвет бренда — <strong>Derma Yellow</strong>, цвет фактической упаковки.</p>
+
+<div class="grid g2">
+  <div class="box y"><h4>Базовый цвет — Derma Yellow</h4><p style="margin-bottom:0;"><code>#E6EE7A</code> · RGB 230/238/122 · <strong>PANTONE 379 U</strong><br>Базовый цвет бренда — фон упаковки.</p></div>
+  <div class="box"><h4>Цвет текста на упаковке</h4><p style="margin-bottom:0;"><code>#59653c</code> — только для текста на упаковке.</p></div>
+</div>
+
+<h4>Значения для веба и digital</h4>
+<table>
+  <tr><th style="width:34%;">Назначение</th><th>Значение</th></tr>
+  <tr><td><strong>Градиент фона</strong> <span class="small">(единый для всех носителей)</span></td><td><code>#fefcd0</code> (верх) → <code>#ffffff</code> (низ) — от кремового к белому. <strong>Используйте только это значение — и для веба, и для карточек в соцсетях</strong></td></tr>
+  <tr><td>Рамки боксов и карточек</td><td><code>#ddea65</code></td></tr>
+  <tr><td>Текст, заголовки, подзаголовки</td><td><code>#000000</code> — чистый чёрный. <strong>Серый текст не используется</strong></td></tr>
+  <tr><td>Заголовки карточек в соцсетях</td><td><code>#4b612d</code></td></tr>
+  <tr><td>Маркерное выделение</td><td><code>#ddf746</code>, непрозрачность 30% — <strong>подкладывайте под текст</strong> (не поверх букв)</td></tr>
+  <tr><td>Цифры и короткие акценты</td><td><code>#025200</code> — <strong>только коротко.</strong> Не для целых абзацев</td></tr>
+  <tr><td>Второстепенный текст</td><td><code>#000000</code>, непрозрачность 65% — для текста, который нужно приглушить</td></tr>
+  <tr><td>Предупреждения</td><td><code>#e23b3b</code> — только функциональная маркировка. Это не цвет бренда</td></tr>
+</table>
+
+<h3>Шрифты</h3>
+
+<table>
+  <tr><th style="width:34%;">Роль</th><th>Шрифт</th></tr>
+  <tr><td>Фразы бренда · крупные заголовки</td><td><strong>Adobe Caslon Pro</strong> (антиква) — заголовки Semibold</td></tr>
+  <tr><td>Подзаголовки · основной текст</td><td><strong>Neue Haas Grotesk Text Pro</strong> (гротеск)</td></tr>
+  <tr><td>Корейский и локальные языки</td><td>Pretendard или Noto Sans — трекинг <code>-0.04em</code></td></tr>
+</table>
+
+<ul>
+  <li>Для латиницы используются <strong>только эти два шрифта</strong>.</li>
+  <li>Для веб-материалов достаточно один раз подключить <code>https://use.typekit.net/ycy6gis.css</code>.</li>
+  <li>Логотип-надпись — это шрифт файла логотипа: <strong>не набирайте его заново</strong>, используйте предоставленный файл.</li>
+</ul>
+
+<h3>Логотип</h3>
+
+<p>Сохраняйте оригинал логотипа и используйте предоставленный файл без изменений. Размер и позиция в изображениях для соцсетей — по таблице ниже.</p>
+
+<table>
+  <tr><th style="width:30%;">Тип контента</th><th style="width:24%;">Позиция</th><th>Размер</th></tr>
+  <tr><td><strong>Заявления бренда</strong><br><span class="small">награды, сертификаты и т.п.</span></td><td>внизу по центру</td><td><strong>1/9</strong> ширины изображения</td></tr>
+  <tr><td><strong>Информационный контент</strong><br><span class="small">карточки в соцсетях и т.п.</span></td><td>вверху по центру или слева вверху</td><td><strong>1/9</strong> ширины изображения</td></tr>
+</table>
+
+<p class="small">Критерий прост — <strong>если «говорит бренд», логотип закрывает изображение снизу как подпись; если «читают информацию», логотип сверху сразу называет отправителя.</strong></p>
+
+<h3>Направление визуала</h3>
+
+<ul>
+  <li><strong>Крупные планы</strong> — текстуры продукта, срез лимона — на чистом однотонном фоне (жёлтый или белый)</li>
+  <li>Естественные цитрусовые образы вместе с деталями в лабораторной эстетике</li>
+  <li><strong>Минимум людей и лайфстайла</strong> — в центре продукт, ингредиенты, текстуры</li>
+  <li>Тон упаковки — минимализм + цитрус. Без пышной люксовой постановки</li>
+</ul>
+
+<div class="box">
+  <h4>Медиатека бренда — скачивайте и используйте свободно <span class="badge b-free">🔓 На ваше усмотрение</span></h4>
+  <p style="margin-bottom:0;">Логотип, фото продуктов, изображения ингредиентов и другие официальные материалы собраны на диске ниже. <strong>Скачивайте и используйте свободно, без отдельных запросов.</strong><br>→ <a href="https://drive.google.com/drive/folders/1zJW4ft37gBmVTPc2yUniMUCYzCH_cyDs?usp=sharing" target="_blank" rel="noopener"><strong>Открыть медиатеку бренда</strong></a></p>
+</div>
+</div>
+</section>
+
+<section class="slide" id="p6" data-part="p6">
+<header class="sh"><span class="lab">Part 6</span><h2>Партнёрство</h2></header>
+<div class="sbody">
+<p>LEMONDERMA продаётся на разных рынках <strong>по-разному</strong>: аптеки в Корее, онлайн-магазины в США, офлайн-точки в Таиланде, клиники в Австралии, рекомендации экспертов в Монголии — продукт один, но работающий способ продажи на каждом рынке свой.</p>
+
+<p>Роль головного офиса — <strong>соединять эти рынки</strong>. То, что сработало на одном рынке, становится подсказкой для других. Как способ продаж из Монголии (способ B) попал в это руководство, так и приёмы, проверенные на вашем рынке, войдут в следующую редакцию.</p>
+
+<div class="quote">
+  <p style="margin-bottom:0;">Вы продаёте этот бренд не в одиночку. <strong>В девяти странах мы строим его вместе, под одним именем.</strong></p>
+</div>
+
+<h3>Поддержка головного офиса</h3>
+
+<p>Маркетинговая команда головного офиса существует, чтобы помогать вам. Нужны материалы по ингредиентам или сертификатам, возник вопрос при проектировании локальной кампании — <strong>обращайтесь без стеснения.</strong> Подготовим вместе.</p>
+
+<div class="box y">
+  <p style="margin-bottom:0;"><strong>Материалы доступны сразу, без ожидания.</strong> Логотип, фото продуктов, визуалы ингредиентов и другие официальные ассеты открыты на диске — <strong>скачивайте и используйте свободно.</strong><br>→ <a href="https://drive.google.com/drive/folders/1zJW4ft37gBmVTPc2yUniMUCYzCH_cyDs?usp=sharing" target="_blank" rel="noopener"><strong>Диск с ассетами бренда</strong></a> · <a href="https://drive.google.com/file/d/15FxIse-pc9wFNDUD8uSpL3U0518tDKbA/view?usp=drive_link" target="_blank" rel="noopener"><strong>Брошюра продуктов</strong></a></p>
+</div>
+
+<p>И если при создании контента вам понадобится решение, которого нет в этом руководстве, — сообщите нам. Именно такие вопросы делают следующую редакцию лучше.</p>
+</div>
+</section>
+
+<section class="slide" id="apx" data-part="apx">
+<header class="sh"><span class="lab">Приложение</span><h2>Справочные материалы</h2></header>
+<div class="sbody">
+<h3>B. Частые вопросы</h3>
+
+<h4>«Если веганское — значит, слабое?»</h4>
+<p>«Веган» — это про происхождение сырья, а эффективность — про то, какие ингредиенты, в какой концентрации и как доставляются. LEMONDERMA имеет <strong>регистрацию двойной функциональности MFDS (Корея)</strong> по осветлению и разглаживанию морщин. Именно поэтому слоган бренда — «Vegan that works».</p>
+
+<h4>«Лимон на коже — это не раздражает?»</h4>
+<p>Раздражающие компоненты лимона сосредоточены в <strong>кожуре</strong>, а в соке их почти нет. LEMONDERMA использует только компоненты из <strong>сока</strong> лимона Чеджу.</p>
+
+<h4>«Покалывает — это нормально?»</h4>
+<p>Лёгкое покалывание от сыворотки — это физическое ощущение того, как веганские микрокристаллы открывают коже путь, а не химическое раздражение. Обычно оно проходит за 5–10 минут. Для чувствительной кожи начинайте через день.</p>
+
+<h4>«Здесь экзосомы — это они дают эффект?»</h4>
+<p>Экзосомы — это идентичность LEMONDERMA и ингредиент, показывающий исследовательский фундамент материнской компании Zishel Bio. А доказательная база осветления и разглаживания морщин — это <strong>ниацинамид 2% и аденозин 0.04%</strong> (регистрация MFDS). Разделяя эти две вещи в объяснении, вы только повышаете доверие.</p>
+
+<h4>«Экстракт лимона и лимонные экзосомы — это разное?»</h4>
+<p>Разное. <strong>Экстракт</strong> — это жидкость, извлечённая из лимона: смесь растворённых в ней компонентов. <strong>Экзосомы</strong> — это отдельно собранные <strong>мельчайшие частицы, в которых тонкая мембрана обволакивает содержимое</strong>; они изначально присутствуют в соке. Разница — между <strong>компонентами, растворёнными в жидкости</strong>, и <strong>частицами, защищёнными мембраной</strong>. Мембрана защищает содержимое — отсюда и связь с <strong>«доставкой»</strong>, о которой говорит LEMONDERMA.</p>
+
+<h4>«У меня уже есть свои средства — всё менять?»</h4>
+<p>Нет. После умывания нанесите сыворотку LEMONDERMA <strong>самой первой</strong>, а затем свои привычные средства поверх. Путь в кожу уже открыт — то, что наносится следом, доставляется лучше.</p>
+
+<h4>«Чем это отличается от других K-beauty брендов?»</h4>
+<p>Среди K-beauty LEMONDERMA — дермакосметика, которая <strong>в Корее продаётся только в аптеках</strong>. А её материнская компания — биотех-R&amp;D компания, поставляющая экзосомы в клиники более чем 50 стран.</p>
+</div>
+</section>
+
+<section class="slide" data-part="apx">
+<header class="sh"><span class="lab">Приложение</span><h2>Справочные материалы</h2><span class="cont">продолжение 2/2</span></header>
+<div class="sbody">
+<h3>C. Термины</h3>
+
+<table>
+  <tr><th style="width:26%;">Термин</th><th>Значение</th></tr>
+  <tr><td><b>Экзосомы</b> (везикулы · EV)<br><span class="small">Citrus Limon Fruit Juice Vesicles</span></td><td>Отобранные и выделенные <strong>мельчайшие «мешочки», в которых тонкая мембрана обволакивает содержимое</strong>; они изначально присутствуют в лимонном соке. Мембрана защищает содержимое (витамин C и др.). Именно потому, что это <strong>частицы в мембране</strong>, они связаны с «доставкой». «100 млн частиц» — это подсчитанное число таких частиц</td></tr>
+  <tr><td><b>Лимонный сок · экстракт лимона</b><br><span class="small">Fruit Juice · Fruit Extract</span></td><td><strong>Жидкость, извлечённая</strong> из лимона: смесь компонентов без мембранной структуры. Отличие от экзосом — <strong>наличие мембраны</strong>: в экстракте компоненты растворены в жидкости, а экзосомы — это отдельно собранные частицы в мембране</td></tr>
+  <tr><td><b>Веганские микрокристаллы</b></td><td>Ингредиент минерального происхождения (синтетическое минеральное стекло), открывающий коже микроскопические пути. Не животного и не морского происхождения. Только в сыворотке</td></tr>
+  <tr><td><b>NTA</b></td><td>Метод анализа для подсчёта наночастиц. Данные поставщика сырья, на которых основана цифра «100 млн частиц»</td></tr>
+  <tr><td><b>Двойная функциональность MFDS</b></td><td>Регистрация Министерства безопасности продовольствия и лекарств Кореи (MFDS), признающая сразу две функции: осветление и разглаживание морщин</td></tr>
+  <tr><td><b>ppm</b></td><td>Частей на миллион. 10 000 ppm = 1%</td></tr>
+  <tr><td><b>Zishel Bio</b></td><td>Материнская компания LEMONDERMA. Исследует и производит экзосомы, поставляет их в клиники более чем 50 стран</td></tr>
+  <tr><td><b>COSMAX</b></td><td>ODM-производитель косметики №1 в мире; производит LEMONDERMA</td></tr>
+  <tr><td><b>K-Pharmacy</b></td><td>Категория дермакосметики, продающейся через аптечный канал Кореи</td></tr>
+</table>
+</div>
+</section>
+
+<section class="slide" data-part="end">
+  <div class="inner" style="padding-top:16vh;text-align:center;">
+    <img class="wm end" src="../assets/lemonderma-logo.png" alt="Lemonderma" style="margin:0 auto 2.4rem;">
+    <h2 style="font-family:var(--serif);font-weight:600;font-size:2.6rem;line-height:1.3;">Спасибо.</h2>
+    <p class="small" style="margin-top:3rem;">LEMONDERMA Global Distributor Marketing Guidebook<br>Издание 1.0 · Июль 2026 · VDVIA Inc.</p>
+  </div>
+</section>
+
+<div id="shint">↓ Ниже есть ещё — прокрутите</div>
+<div class="bar" id="bar"></div>
+<div class="ctrl"><div class="in">
+  <button id="prev">‹ Назад</button>
+  <span class="pg" id="pg"></span>
+  <button id="next">Далее ›</button>
+</div></div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')), i=0;
+  var navs=[].slice.call(document.querySelectorAll('nav a'));
+  // scroll hint only while more content remains
+  function hint(el){
+    var more = el.scrollHeight - el.clientHeight - el.scrollTop > 24;
+    document.body.classList.toggle('tall', more);
+  }
+  slides.forEach(function(s){ s.addEventListener('scroll',function(){ if(s.classList.contains('on')) hint(s); },{passive:true}); });
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i);});
+    if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();
+    var cur=slides[i];
+    cur.scrollTop=0;
+    requestAnimationFrame(function(){
+      cur.scrollTop=0;
+      hint(cur);
+    });
+    // autoplay does not fire on hidden slides — play on enter, pause on leave
+    slides.forEach(function(s,k){
+      [].slice.call(s.querySelectorAll('video')).forEach(function(v){
+        if(k===i){ v.play().catch(function(){}); } else { v.pause(); }
+      });
+    });
+    document.getElementById('pg').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('prev').disabled=(i===0);
+    document.getElementById('next').disabled=(i===slides.length-1);
+    document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
+    var part=slides[i].getAttribute('data-part');
+    navs.forEach(function(a){a.classList.toggle('on',a.getAttribute('data-part')===part);});
+  }
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  navs.forEach(function(a){a.onclick=function(e){
+    e.preventDefault();
+    var t=a.getAttribute('data-part');
+    for(var k=0;k<slides.length;k++){if(slides[k].getAttribute('data-part')===t){show(k);break;}}
+  };});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1);}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+    if(e.key==='Home'){show(0);} if(e.key==='End'){show(slides.length-1);}
+  });
+  show(0);
+})();
+
+/* cursor glow — soft light + crisp ring, eased tracking (same as marketing admin) */
+(function(){
+  try{ if(window.matchMedia&&matchMedia('(hover:none)').matches) return; }catch(e){}
+  var g=document.createElement('div'); g.id='cglow';
+  var r=document.createElement('div'); r.id='cring';
+  document.body.appendChild(g); document.body.appendChild(r);
+  var gx=innerWidth/2, gy=innerHeight/2, rx=gx, ry=gy, mx=gx, my=gy;
+  addEventListener('mousemove',function(e){mx=e.clientX; my=e.clientY;},{passive:true});
+  addEventListener('mousedown',function(){r.classList.add('act');});
+  addEventListener('mouseup',function(){r.classList.remove('act');});
+  (function loop(){
+    gx+=(mx-gx)*.13; gy+=(my-gy)*.13; rx+=(mx-rx)*.30; ry+=(my-ry)*.30;
+    g.style.transform='translate('+gx.toFixed(1)+'px,'+gy.toFixed(1)+'px)';
+    r.style.transform='translate('+rx.toFixed(1)+'px,'+ry.toFixed(1)+'px)';
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
