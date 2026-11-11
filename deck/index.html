@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head><!-- build:2e87ce59df8e -->
+<head><!-- build:b0ae9851f88c -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -103,6 +103,21 @@ figcaption{font-size:13px;color:var(--mute);margin-top:8px;line-height:1.45}
 .adgrid .wide{grid-column:span 3}
 .vrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .sp-d{grid-template-columns:1fr 1fr;align-items:start}
+.box.value{border-width:1.6px;background:linear-gradient(135deg,#fbfde4,#fffdf2)}
+.box.value .n{font-size:40px;color:#4f5a00}
+.pony2{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:420px}
+.pony2 figure{display:flex;flex-direction:column;gap:8px}
+.go{display:block;text-align:center;font-size:13px;font-weight:800;text-decoration:none;border:1.3px solid var(--hlb);border-radius:999px;padding:6px 10px;background:#fff;color:#3c4300}
+.go:hover{background:var(--hlbg)}
+.marquee{position:relative;overflow:hidden;margin:0 -8px}
+.mq-track{display:flex;gap:10px;width:max-content;animation:mq 90s linear infinite}
+.mq-track .vf{width:168px;flex:none}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 5px))}}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:110px;z-index:3;pointer-events:none;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.marquee::before{left:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%);-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,#fff 0%,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%);-webkit-mask-image:linear-gradient(270deg,#000 30%,transparent);mask-image:linear-gradient(270deg,#000 30%,transparent)}
+.sp-e{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);align-items:start}
+.tiles1{grid-template-columns:1fr}
 .reels-h{font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--olive);margin:22px 0 8px}
 .reels{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
 
@@ -142,7 +157,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
 @media(max-width:980px){
   .s{padding:28px 26px 32px 34px}
   .c4{grid-template-columns:1fr 1fr}
-  .sp-a,.sp-b,.sp-c,.sp-d{grid-template-columns:1fr}
+  .sp-a,.sp-b,.sp-c,.sp-d,.sp-e{grid-template-columns:1fr}
+  .tiles1{grid-template-columns:1fr 1fr}
   .lux{grid-template-columns:minmax(0,1fr);min-height:0}
   .lux-r{order:-1;min-height:0;height:300px;min-width:0}
   .lux-l{padding:40px 30px 34px 34px}
@@ -169,7 +185,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   .pfs{grid-template-columns:1fr}
   .collab{grid-template-columns:112px 1fr;gap:12px}
   .collab .nums .n{font-size:24px}
-  .vrow{gap:6px}.adgrid{gap:6px}.reels{grid-template-columns:repeat(3,1fr);gap:6px}
+  .vrow{gap:6px}.adgrid{gap:6px}.mq-track .vf{width:118px}.mq-track{gap:8px;animation-duration:70s}.marquee::before,.marquee::after{width:48px}.box.value .n{font-size:32px}.pony2{max-width:none}.reels{grid-template-columns:repeat(3,1fr);gap:6px}
   .vf .lbl{font-size:10px;padding:2px 7px;left:5px;bottom:5px}
   table{font-size:13.5px}td,th{padding:8px 9px}
   .min-t table{min-width:560px}
@@ -204,7 +220,6 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   <div class="lux-r"><img src="assets/img/cover-lemon-lab.jpg" alt="Lemonshot 150 Exo:Booster Serum과 Exo:Booster Cream"></div>
 </section>
 
-<div class="whatsnew"><b>이번 업데이트</b><a href="#circle">레몬더마 써클 · 메가 인플루언서</a><a href="#skinlab">스킨랩 파트너스 UAE 1기</a><a href="#s03">마케팅 영상 추가</a></div>
 
 <!-- 2 소싱 카드 -->
 <section class="s" id="s01"><div class="bar"></div>
@@ -255,7 +270,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   <div class="sub">블랙핑크 지수 메이크업 아티스트 PONY와의 콜라보. 2026년 8월 31일 세럼·크림 리뷰 콘텐츠 공개.</div>
   <div class="split sp-a">
     <div>
-      <div class="cols c2 keep2">
+      <div class="box hl value"><div class="t">콜라보 계약 가치</div><div class="n">₩3억</div><div class="m">PONY 콜라보레이션 콘텐츠 + 본사·파트너사 광고 2차 활용 권리를 포함한 3억 원 규모 계약</div></div>
+      <div class="cols c2 keep2" style="margin-top:14px">
         <div class="box hl"><div class="t">합산 팔로워</div><div class="n">약 27M</div><div class="m">YouTube · Instagram · TikTok</div></div>
         <div class="box"><div class="t">YouTube</div><div class="n">9M</div><div class="m">PONY Syndrome</div></div>
         <div class="box"><div class="t">TikTok</div><div class="n">11M</div><div class="m">@ponysmakeup</div></div>
@@ -263,12 +279,15 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
       </div>
       <ul style="margin-top:14px">
         <li>9월부터 PONY 영상을 중심으로 국가별 인플루언서 확산 + 아마존·메타·틱톡 광고 연동</li>
-        <li><b>유통 파트너는 PONY 콘텐츠를 현지에서 리포스트해 활용 가능</b></li>
+        <li><b>유통 파트너는 PONY 콘텐츠를 현지 광고와 SNS에 2차 활용 가능</b></li>
       </ul>
     </div>
     <div class="media-pony" id="pony-media">
       <!--PONY_MEDIA-->
-      <div class="vf land"><video muted loop playsinline preload="none" poster="assets/video/pony-pick.jpg" aria-label="Pony's Pick · BLACKPINK Jisoo's Makeup Artist"><source src="assets/video/pony-pick.mp4" type="video/mp4"></video></div>
+      <div class="pony2">
+        <figure><div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/pony-1.jpg" aria-label="PONY 콜라보 영상 1"><source src="assets/video/pony-1.mp4" type="video/mp4"></video></div><a class="go" href="https://www.instagram.com/reel/DfHK9rQSrdF/" target="_blank" rel="noopener">영상 바로가기 ↗</a></figure>
+        <figure><div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/pony-2.jpg" aria-label="PONY 콜라보 영상 2"><source src="assets/video/pony-2.mp4" type="video/mp4"></video></div><a class="go" href="https://www.instagram.com/reel/Dcs0YHmtunS/" target="_blank" rel="noopener">영상 바로가기 ↗</a></figure>
+      </div>
       <!--/PONY_MEDIA-->
     </div>
   </div>
@@ -295,7 +314,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
       <div class="tw"><table>
         <tr><th>시장</th><th>운영 내용</th></tr>
         <tr><td class="k">미국</td><td>TikTok Shop 크리에이터 어필리에이트 네트워크</td></tr>
-        <tr><td class="k">UAE</td><td>현지 크리에이터 커뮤니티 '스킨랩 파트너스' 1기. 모집 일주일 만에 신청 50명 초과, 최종 300명 이상 지원</td></tr>
+        <tr><td class="k">UAE</td><td>현지 크리에이터 커뮤니티 '스킨랩 파트너스' 1기. 모집 일주일 만에 신청 50명 초과, 최종 500명 이상 지원</td></tr>
         <tr><td class="k">미국·UAE</td><td>Amazon 스폰서드 브랜드·프로덕트 광고 자체 운영</td></tr>
         <tr><td class="k">미국·UAE</td><td>Meta UGC형·비포애프터형 소재 집행</td></tr>
         <tr><td class="k">미국</td><td>TikTok 공식 계정 쇼핑 광고</td></tr>
@@ -304,20 +323,36 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
     </div>
     <div id="ad-media">
       <!--AD_MEDIA-->
-      <div class="vf land"><video muted loop playsinline preload="none" poster="assets/video/ad-laser.jpg" aria-label="아마존 영상 광고 소재"><source src="assets/video/ad-laser.mp4" type="video/mp4"></video><span class="lbl">Amazon 영상 광고</span></div>
+      <div class="vf land"><video muted loop playsinline preload="none" poster="assets/video/ad-main.jpg" aria-label="광고 소재 영상"><source src="assets/video/ad-main.mp4" type="video/mp4"></video></div>
       <!--/AD_MEDIA-->
     </div>
   </div>
   <div class="reels-h">크리에이터 영상</div>
-  <div class="reels" id="creator-reels">
+  <div class="marquee" id="creator-reels">
+    <div class="mq-track">
     <!--CREATOR_REELS-->
-    <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/creator-1.jpg" aria-label="크리에이터 영상 1"><source src="assets/video/creator-1.mp4" type="video/mp4"></video></div>
-    <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/creator-2.jpg" aria-label="크리에이터 영상 2"><source src="assets/video/creator-2.mp4" type="video/mp4"></video></div>
-    <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/creator-3.jpg" aria-label="크리에이터 영상 3"><source src="assets/video/creator-3.mp4" type="video/mp4"></video></div>
-    <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/creator-4.jpg" aria-label="크리에이터 영상 4"><source src="assets/video/creator-4.mp4" type="video/mp4"></video></div>
-    <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/creator-5.jpg" aria-label="크리에이터 영상 5"><source src="assets/video/creator-5.mp4" type="video/mp4"></video></div>
-    <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/creator-6.jpg" aria-label="크리에이터 영상 6"><source src="assets/video/creator-6.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-01.jpg" aria-label="크리에이터 영상 1"><source src="assets/video/reel-01.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-02.jpg" aria-label="크리에이터 영상 2"><source src="assets/video/reel-02.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-03.jpg" aria-label="크리에이터 영상 3"><source src="assets/video/reel-03.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-04.jpg" aria-label="크리에이터 영상 4"><source src="assets/video/reel-04.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-05.jpg" aria-label="크리에이터 영상 5"><source src="assets/video/reel-05.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-06.jpg" aria-label="크리에이터 영상 6"><source src="assets/video/reel-06.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-07.jpg" aria-label="크리에이터 영상 7"><source src="assets/video/reel-07.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-08.jpg" aria-label="크리에이터 영상 8"><source src="assets/video/reel-08.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-09.jpg" aria-label="크리에이터 영상 9"><source src="assets/video/reel-09.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-10.jpg" aria-label="크리에이터 영상 10"><source src="assets/video/reel-10.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-01.jpg" aria-hidden="true"><source src="assets/video/reel-01.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-02.jpg" aria-hidden="true"><source src="assets/video/reel-02.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-03.jpg" aria-hidden="true"><source src="assets/video/reel-03.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-04.jpg" aria-hidden="true"><source src="assets/video/reel-04.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-05.jpg" aria-hidden="true"><source src="assets/video/reel-05.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-06.jpg" aria-hidden="true"><source src="assets/video/reel-06.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-07.jpg" aria-hidden="true"><source src="assets/video/reel-07.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-08.jpg" aria-hidden="true"><source src="assets/video/reel-08.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-09.jpg" aria-hidden="true"><source src="assets/video/reel-09.mp4" type="video/mp4"></video></div>
+      <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/reel-10.jpg" aria-hidden="true"><source src="assets/video/reel-10.mp4" type="video/mp4"></video></div>
     <!--/CREATOR_REELS-->
+    </div>
   </div>
 </section>
 
@@ -325,17 +360,17 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
 <section class="s" id="circle"><div class="bar"></div>
   <div class="tag">03 · 마케팅<span class="new">NEW</span></div><h1>레몬더마 써클 · 메가 인플루언서 네트워크</h1>
   <div class="sub"><!--CIRCLE_SUB-->
-레몬더마 써클은 브랜드와 협업하는 글로벌 크리에이터 네트워크입니다. 미국, 유럽, 중동, 한국의 메가 인플루언서가 함께하고 있으며, 아래 여섯 명의 팔로워만 합쳐도 3,300만 명이 넘습니다.
+레몬더마 써클은 브랜드와 협업하는 글로벌 크리에이터 네트워크입니다. 미국, 유럽, 중동, 한국의 메가 인플루언서가 함께하고 있으며, 아래 여섯 명의 팔로워만 합쳐도 3,400만 명이 넘습니다.
       <!--/CIRCLE_SUB--></div>
   <div class="split sp-c">
     <div class="pfs" id="circle-profiles">
       <!--CIRCLE_PROFILES-->
       <a class="pf" href="https://www.instagram.com/ponysmakeup/" target="_blank" rel="noopener"><img src="assets/img/circle/ponysmakeup.jpg" alt="PONY 포니" loading="lazy"><div><div class="nm">PONY 포니</div><div class="hd">@ponysmakeup · 3개 채널 합산</div><div class="fo">약 27M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/rebeccaghaderi/" target="_blank" rel="noopener"><img src="assets/img/circle/rebeccaghaderi.jpg" alt="Rebecca Ghaderi" loading="lazy"><div><div class="nm">Rebecca Ghaderi</div><div class="hd">@rebeccaghaderi · Instagram</div><div class="fo">2.5M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/zooya_beauty/" target="_blank" rel="noopener"><img src="assets/img/circle/zooya_beauty.jpg" alt="Zooya Beauty" loading="lazy"><div><div class="nm">Zooya Beauty</div><div class="hd">@zooya_beauty · Instagram</div><div class="fo">2.1M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.tiktok.com/@bellabrocks27" target="_blank" rel="noopener"><img src="assets/img/circle/bellabrocks27.jpg" alt="Bella Brocks" loading="lazy"><div><div class="nm">Bella Brocks</div><div class="hd">@bellabrocks27 · TikTok</div><div class="fo">816K<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/forough_joon/" target="_blank" rel="noopener"><img src="assets/img/circle/forough_joon.jpg" alt="Forough" loading="lazy"><div><div class="nm">Forough</div><div class="hd">@forough_joon · Instagram</div><div class="fo">361K<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/jgerenaia_victoria/" target="_blank" rel="noopener"><img src="assets/img/circle/jgerenaia_victoria.jpg" alt="Viki" loading="lazy"><div><div class="nm">Viki</div><div class="hd">@jgerenaia_victoria · Instagram</div><div class="fo">266K<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/rebeccaghaderi/" target="_blank" rel="noopener"><img src="assets/img/circle/rebeccaghaderi.jpg" alt="Rebecca Ghaderi" loading="lazy"><div><div class="nm">Rebecca Ghaderi</div><div class="hd">@rebeccaghaderi · Instagram + YouTube</div><div class="fo">2.8M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/zooya_beauty/" target="_blank" rel="noopener"><img src="assets/img/circle/zooya_beauty.jpg" alt="Zooya Beauty" loading="lazy"><div><div class="nm">Zooya Beauty</div><div class="hd">@zooya_beauty · Instagram + TikTok + YouTube</div><div class="fo">2.5M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/bellabrocks/" target="_blank" rel="noopener"><img src="assets/img/circle/bellabrocks27.jpg" alt="Bella Brocks" loading="lazy"><div><div class="nm">Bella Brocks</div><div class="hd">@bellabrocks · Instagram + TikTok + YouTube</div><div class="fo">1.4M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/forough_joon/" target="_blank" rel="noopener"><img src="assets/img/circle/forough_joon.jpg" alt="Forough" loading="lazy"><div><div class="nm">Forough</div><div class="hd">@forough_joon · Instagram + TikTok + YouTube</div><div class="fo">573K<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/jgerenaia_victoria/" target="_blank" rel="noopener"><img src="assets/img/circle/jgerenaia_victoria.jpg" alt="Viki" loading="lazy"><div><div class="nm">Viki</div><div class="hd">@jgerenaia_victoria · Instagram + TikTok</div><div class="fo">308K<small>팔로워</small></div></div></a>
       <!--/CIRCLE_PROFILES-->
     </div>
     <div>
@@ -343,16 +378,14 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
         <div class="t">써클 크리에이터 × CEO 콜라보 영상</div>
         <div class="collab">
           <!--COLLAB_MEDIA-->
-          <div class="vf port" data-slot="본사 방문 콜라보 영상"><img src="assets/img/circle/collab-poster.jpg" alt="서울 본사에서 촬영한 콜라보 영상" loading="lazy"></div>
+          <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/circle-collab.jpg" aria-label="본사 방문 콜라보 영상"><source src="assets/video/circle-collab.mp4" type="video/mp4"></video></div>
       <!--/COLLAB_MEDIA-->
           <div>
             <div class="m">써클 크리에이터 Bella Brocks가 서울 본사를 직접 방문해 CEO와 함께 촬영한 콜라보 영상입니다.</div>
             <div class="nums">
-              <div><div class="n" style="font-weight:800;color:var(--olive2)">74만+</div><span>조회수</span></div>
-              <div><div class="n" style="font-weight:800;color:var(--olive2)">4.8만</div><span>좋아요</span></div>
+              <div><div class="n" style="font-weight:800;color:var(--olive2)">750K+</div><span>조회수</span></div>
+              <div><div class="n" style="font-weight:800;color:var(--olive2)">50K+</div><span>좋아요</span></div>
             </div>
-            <div class="m">Instagram + TikTok 합산 · 2026년 11월 기준</div>
-            <div class="links"><a href="https://www.instagram.com/reel/DSDi4qQE3CY/" target="_blank" rel="noopener">Instagram에서 보기 ↗</a><a href="https://www.tiktok.com/@bellabrocks27/video/7581950870737227030" target="_blank" rel="noopener">TikTok에서 보기 ↗</a></div>
           </div>
         </div>
       </div>
@@ -365,26 +398,15 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
 <!-- 5c 스킨랩 파트너스 ① (신규) -->
 <section class="s" id="skinlab"><div class="bar"></div>
   <div class="tag">03 · 마케팅<span class="new">NEW</span></div><h1>스킨랩 파트너스 · 현지 소비자 커뮤니티</h1>
-  <div class="sub">스킨랩 파트너스는 현지 소비자와 크리에이터를 선발해 4주 동안 제품을 써 보게 하고, 왓츠앱 그룹에서 브랜드와 직접 이야기를 나누는 프로그램입니다. UAE에서 처음 열었고, 마지막 주에는 파트너가 각자 인스타그램 릴스를 올립니다.</div>
-  <div class="split sp-c">
+  <div class="sub">스킨랩 파트너스는 현지 소비자를 선발해 4주간 제품을 직접 써보며 콘텐츠 8개를 시청하고 질문에 답변하고 1개 이상의 후기 릴스를 업로드하는 프로그램입니다. CEO의 진정성 있는 목소리를 듣고 직접 소통할 수 있는 장점이 있습니다.</div>
+  <div class="split sp-e">
     <div>
-      <div class="cols c2 keep2">
+      <div class="cols tiles1">
         <!--SKINLAB_TILES-->
-        <div class="box hl"><div class="t">지원</div><div class="n">300명+</div><div class="m">공식 인스타그램 DM과 신청 페이지로 2주간 모집</div></div>
-        <div class="box hl"><div class="t">선발</div><div class="n">55명</div><div class="m">경쟁률 약 6 : 1</div></div>
-        <div class="box"><div class="t">운영</div><div class="n">4주</div><div class="m">왓츠앱 그룹 · 2026년 10월 19일~11월 16일</div></div>
-        <div class="box"><div class="t">콘텐츠</div><div class="n">주 2회</div><div class="m">월·목마다 영상 1편과 질문 1개</div></div>
+        <div class="box hl"><div class="t">지원</div><div class="n">500명+</div><div class="m">2주간 모집</div></div>
+        <div class="box hl"><div class="t">운영</div><div class="n">4주</div><div class="m">2026년 10월 19일~11월 16일</div></div>
       <!--/SKINLAB_TILES-->
       </div>
-      <div class="tw" style="margin-top:14px"><table>
-        <tr><th>단계</th><th>운영 방식</th></tr>
-        <!--SKINLAB_TABLE-->
-        <tr><td class="k">모집</td><td>공식 인스타그램 계정의 DM과 신청 페이지로 2주간 모집</td></tr>
-        <tr><td class="k">선발</td><td>신청서와 SNS 활동을 검토해 55명 선발, 세럼·크림 세트 발송</td></tr>
-        <tr><td class="k">운영</td><td>왓츠앱 그룹 4주. 매주 월·목에 브랜드가 영상 1편과 질문 1개를 올리고 파트너가 답합니다</td></tr>
-        <tr><td class="k">마무리</td><td>마지막 주에 파트너가 각자 인스타그램 릴스 1편을 게시, 최우수 파트너 선정</td></tr>
-        <!--/SKINLAB_TABLE-->
-      </table></div>
     </div>
     <div>
       <div class="vrow" id="skinlab-media">
