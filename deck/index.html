@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head><!-- build:b0ae9851f88c -->
+<head><!-- build:c158b166d727 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -116,8 +116,35 @@ figcaption{font-size:13px;color:var(--mute);margin-top:8px;line-height:1.45}
 .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:110px;z-index:3;pointer-events:none;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
 .marquee::before{left:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%);-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
 .marquee::after{right:0;background:linear-gradient(270deg,#fff 0%,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 100%);-webkit-mask-image:linear-gradient(270deg,#000 30%,transparent);mask-image:linear-gradient(270deg,#000 30%,transparent)}
-.sp-e{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);align-items:start}
-.tiles1{grid-template-columns:1fr}
+.sp-e{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);align-items:stretch}
+.tiles-wrap{display:flex}
+.tiles1{grid-template-columns:1fr;grid-auto-rows:1fr;flex:1}
+.tiles1 .box{display:flex;flex-direction:column;justify-content:center;padding:16px 20px}
+.tiles1 .box .n{font-size:34px}
+/* 써클 */
+.circle-top{align-items:stretch}
+.circle-l{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pf.more{flex:1;border-style:dashed;border-color:var(--hlb);background:var(--hlbg)}
+.pf.more .stack{display:flex;flex:none;align-items:center}
+.pf.more .stack img,.pf.more .stack span{width:46px;height:46px;border-radius:50%;border:2px solid #fff;margin-left:-14px;object-fit:cover;object-position:50% 22%;background:#f2f0df;flex:none}
+.pf.more .stack img:first-child{margin-left:0}
+.pf.more .stack span{display:flex;align-items:center;justify-content:center;background:var(--lime);color:#3c4300;font-weight:800;font-size:20px}
+.pf.more .hd{color:var(--mute)}
+.collab-box{display:flex;flex-direction:column;min-width:0}
+.collab-box .collab{flex:1}
+.collab .vf.port{aspect-ratio:auto;height:100%;min-height:340px}
+.collab-r{display:flex;flex-direction:column;gap:10px;min-width:0}
+.collab-r .stat{flex:1;display:flex;flex-direction:column;justify-content:center;background:#fff;border:1.3px solid var(--hlb);border-radius:12px;padding:10px 16px;line-height:1.2}
+.collab-r .stat .n{font-size:40px;font-weight:800;color:var(--olive2);letter-spacing:-.01em}
+.collab-r .stat span{font-size:13px;color:var(--mute);font-weight:700}
+/* 몽골 */
+.mn{align-items:stretch}
+.statrows{display:flex;flex-direction:column;gap:12px;min-width:0}
+.statrow{flex:1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.statrow .n{white-space:nowrap;font-size:30px}
+.statrow .m{text-align:right;font-size:14px;font-weight:600}
+.mn-map{display:flex;flex-direction:column;justify-content:center}
+.mn-map .vf{width:100%;max-width:440px;margin:0 auto}
 .reels-h{font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--olive);margin:22px 0 8px}
 .reels{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
 
@@ -128,9 +155,10 @@ figcaption{font-size:13px;color:var(--mute);margin-top:8px;line-height:1.45}
 .pf img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none;background:#f2f0df}
 .pf .nm{font-weight:800;font-size:14.5px;line-height:1.3}
 .pf .hd{font-size:12.5px;color:var(--soft);line-height:1.4}
+.pf .pl{font-size:11.5px;color:var(--soft);line-height:1.4;white-space:nowrap}
 .pf .fo{font-weight:800;font-size:21px;color:var(--olive2);line-height:1.25;margin-top:1px}
 .pf .fo small{font-size:12px;font-weight:600;color:var(--soft);margin-left:3px}
-.collab{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:start}
+.collab{display:grid;grid-template-columns:minmax(0,215px) minmax(0,1fr);gap:16px;align-items:stretch;margin-top:8px}
 .collab .nums{display:flex;gap:18px;margin:8px 0 6px;flex-wrap:wrap}
 .collab .nums div{line-height:1.2}
 .collab .nums .n{font-size:30px}
@@ -158,14 +186,15 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   .s{padding:28px 26px 32px 34px}
   .c4{grid-template-columns:1fr 1fr}
   .sp-a,.sp-b,.sp-c,.sp-d,.sp-e{grid-template-columns:1fr}
-  .tiles1{grid-template-columns:1fr 1fr}
+  .tiles1{grid-template-columns:repeat(3,1fr)}
+  .tiles1 .box{justify-content:flex-start}
   .lux{grid-template-columns:minmax(0,1fr);min-height:0}
   .lux-r{order:-1;min-height:0;height:300px;min-width:0}
   .lux-l{padding:40px 30px 34px 34px}
   .lux-rule{margin:30px 0 22px}
   .lux-t{font-size:36px}
   .media-pony .vf.port{max-width:220px}
-  .top .upd{display:none}
+  .top .upd{font-size:10.5px;letter-spacing:.03em}
 }
 @media(max-width:640px){
   body{font-size:14.5px}
@@ -183,12 +212,18 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   .badge-row{gap:22px;margin-top:20px}
   .badge-row img{height:68px}.badge-row img.wide{height:52px}
   .pfs{grid-template-columns:1fr}
-  .collab{grid-template-columns:112px 1fr;gap:12px}
-  .collab .nums .n{font-size:24px}
+  .collab{grid-template-columns:minmax(0,128px) minmax(0,1fr);gap:12px}
+  .collab .vf.port{min-height:228px}
+  .collab-r{gap:8px}.collab-r .stat{padding:7px 12px}.collab-r .stat .n{font-size:26px}.collab-r .stat span{font-size:12px}
+  .pf.more .stack img,.pf.more .stack span{width:38px;height:38px;margin-left:-13px}
+  .tiles1{gap:8px}.tiles1 .box{padding:11px 11px}.tiles1 .box .n{font-size:22px}.tiles1 .box .m{font-size:12px}
+  .statrow{padding:12px 14px;gap:10px}.statrow .n{font-size:23px}.statrow .m{font-size:13px}
+  .top .upd{font-size:9.5px;letter-spacing:0}.top .logo{height:14px}
   .vrow{gap:6px}.adgrid{gap:6px}.mq-track .vf{width:118px}.mq-track{gap:8px;animation-duration:70s}.marquee::before,.marquee::after{width:48px}.box.value .n{font-size:32px}.pony2{max-width:none}.reels{grid-template-columns:repeat(3,1fr);gap:6px}
   .vf .lbl{font-size:10px;padding:2px 7px;left:5px;bottom:5px}
   table{font-size:13.5px}td,th{padding:8px 9px}
   .min-t table{min-width:560px}
+  .ch-t table{font-size:13px}.ch-t td,.ch-t th{padding:8px 7px}.ch-t td.k{white-space:nowrap}
   .whatsnew{padding:10px 12px;font-size:13px}
   .top-in{gap:12px;padding:0 12px}
 }
@@ -202,7 +237,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
     <nav>
       <a href="#s01">한눈에 보기</a><a href="#s02">브랜드</a><a href="#s03">마케팅</a><a href="#s04">파트너 사례</a><a href="#s05">채널</a><a href="#s06">협업 안내</a><a href="#appendix">브랜드 현장</a>
     </nav>
-    <span class="upd">UPDATED 2026.11.10</span>
+    <span class="upd">UPDATED 2026.11.11</span>
   </div>
 </header>
 
@@ -215,7 +250,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
     <div class="lux-rule"></div>
     <div class="lux-t serif">Brand &amp;<br>Marketing Reference</div>
     <div class="lux-s serif">Korean Pharmacy Vegan Dermacosmetic</div>
-    <div class="lux-f serif"><span>VDVIA CO., LTD.</span><span>UPDATED 2026.11.10</span></div>
+    <div class="lux-f serif"><span>VDVIA CO., LTD.</span><span>UPDATED 2026.11.11</span></div>
   </div>
   <div class="lux-r"><img src="assets/img/cover-lemon-lab.jpg" alt="Lemonshot 150 Exo:Booster Serum과 Exo:Booster Cream"></div>
 </section>
@@ -270,7 +305,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   <div class="sub">블랙핑크 지수 메이크업 아티스트 PONY와의 콜라보. 2026년 8월 31일 세럼·크림 리뷰 콘텐츠 공개.</div>
   <div class="split sp-a">
     <div>
-      <div class="box hl value"><div class="t">콜라보 계약 가치</div><div class="n">₩3억</div><div class="m">PONY 콜라보레이션 콘텐츠 + 본사·파트너사 광고 2차 활용 권리를 포함한 3억 원 규모 계약</div></div>
+      <div class="box hl value"><div class="t">콜라보 계약 가치</div><div class="n">₩300,000,000</div><div class="m">PONY 콜라보레이션 콘텐츠 + 본사·파트너사 광고 2차 활용 권리를 포함한 3억 원 규모 계약</div></div>
       <div class="cols c2 keep2" style="margin-top:14px">
         <div class="box hl"><div class="t">합산 팔로워</div><div class="n">약 27M</div><div class="m">YouTube · Instagram · TikTok</div></div>
         <div class="box"><div class="t">YouTube</div><div class="n">9M</div><div class="m">PONY Syndrome</div></div>
@@ -305,29 +340,44 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   </div>
 </section>
 
-<!-- 5 크리에이터·광고 -->
-<section class="s" id="s03-creator"><div class="bar"></div>
-  <div class="tag">03 · 마케팅</div><h1>크리에이터 네트워크 · 퍼포먼스 광고</h1>
-  <div class="sub">소재를 직접 만들고 광고를 직접 운영하는 브랜드입니다.</div>
-  <div class="split sp-d">
-    <div>
-      <div class="tw"><table>
-        <tr><th>시장</th><th>운영 내용</th></tr>
-        <tr><td class="k">미국</td><td>TikTok Shop 크리에이터 어필리에이트 네트워크</td></tr>
-        <tr><td class="k">UAE</td><td>현지 크리에이터 커뮤니티 '스킨랩 파트너스' 1기. 모집 일주일 만에 신청 50명 초과, 최종 500명 이상 지원</td></tr>
-        <tr><td class="k">미국·UAE</td><td>Amazon 스폰서드 브랜드·프로덕트 광고 자체 운영</td></tr>
-        <tr><td class="k">미국·UAE</td><td>Meta UGC형·비포애프터형 소재 집행</td></tr>
-        <tr><td class="k">미국</td><td>TikTok 공식 계정 쇼핑 광고</td></tr>
-      </table></div>
-      <p class="note">아마존 미국 구매자 인구통계 분석 자료 별첨</p>
+<!-- 5 Lemonderma Circle -->
+<section class="s" id="circle"><div class="bar"></div>
+  <div class="tag">03 · 마케팅</div><h1>Lemonderma Circle</h1>
+  <div class="sub"><!--CIRCLE_SUB-->
+레몬더마 써클은 브랜드와 협업하는 글로벌 크리에이터 네트워크입니다. 미국, 유럽, 중동, 한국에서 2,000명이 넘는 크리에이터가 함께하고 있으며, 아래 메가 인플루언서 여섯 명의 팔로워만 합쳐도 3,400만 명이 넘습니다.
+      <!--/CIRCLE_SUB--></div>
+  <div class="split sp-c circle-top">
+    <div class="circle-l">
+      <div class="pfs" id="circle-profiles">
+      <!--CIRCLE_PROFILES-->
+      <a class="pf" href="https://www.instagram.com/ponysmakeup/" target="_blank" rel="noopener"><img src="assets/img/circle/ponysmakeup.jpg" alt="PONY 포니" loading="lazy"><div><div class="nm">PONY 포니</div><div class="hd">@ponysmakeup</div><div class="pl">YouTube · Instagram · TikTok</div><div class="fo">약 27M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/rebeccaghaderi/" target="_blank" rel="noopener"><img src="assets/img/circle/rebeccaghaderi.jpg" alt="Rebecca Ghaderi" loading="lazy"><div><div class="nm">Rebecca Ghaderi</div><div class="hd">@rebeccaghaderi</div><div class="pl">Instagram · YouTube</div><div class="fo">2.8M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/zooya_beauty/" target="_blank" rel="noopener"><img src="assets/img/circle/zooya_beauty.jpg" alt="Zooya Beauty" loading="lazy"><div><div class="nm">Zooya Beauty</div><div class="hd">@zooya_beauty</div><div class="pl">Instagram · TikTok · YouTube</div><div class="fo">2.5M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/bellabrocks/" target="_blank" rel="noopener"><img src="assets/img/circle/bellabrocks27.jpg" alt="Bella Brocks" loading="lazy"><div><div class="nm">Bella Brocks</div><div class="hd">@bellabrocks</div><div class="pl">Instagram · TikTok · YouTube</div><div class="fo">1.4M<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/forough_joon/" target="_blank" rel="noopener"><img src="assets/img/circle/forough_joon.jpg" alt="Forough" loading="lazy"><div><div class="nm">Forough</div><div class="hd">@forough_joon</div><div class="pl">Instagram · TikTok · YouTube</div><div class="fo">573K<small>팔로워</small></div></div></a>
+      <a class="pf" href="https://www.instagram.com/jgerenaia_victoria/" target="_blank" rel="noopener"><img src="assets/img/circle/jgerenaia_victoria.jpg" alt="Viki" loading="lazy"><div><div class="nm">Viki</div><div class="hd">@jgerenaia_victoria</div><div class="pl">Instagram · TikTok</div><div class="fo">308K<small>팔로워</small></div></div></a>
+      <!--/CIRCLE_PROFILES-->
+      </div>
+      <div class="pf more">
+        <div class="stack"><img src="assets/video/reel-01.jpg" alt="" loading="lazy"><img src="assets/video/reel-03.jpg" alt="" loading="lazy"><img src="assets/video/reel-04.jpg" alt="" loading="lazy"><img src="assets/video/reel-07.jpg" alt="" loading="lazy"><span>+</span></div>
+        <div><div class="fo">+2,000<small>명</small></div><div class="hd">이 밖에도 2,000명 이상의 크리에이터가 써클에서 활동하고 있습니다.</div></div>
+      </div>
     </div>
-    <div id="ad-media">
-      <!--AD_MEDIA-->
-      <div class="vf land"><video muted loop playsinline preload="none" poster="assets/video/ad-main.jpg" aria-label="광고 소재 영상"><source src="assets/video/ad-main.mp4" type="video/mp4"></video></div>
-      <!--/AD_MEDIA-->
+    <div class="box hl collab-box">
+      <div class="t">써클 크리에이터 × CEO 콜라보 영상</div>
+      <div class="collab">
+        <!--COLLAB_MEDIA-->
+        <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/circle-collab.jpg" aria-label="본사 방문 콜라보 영상"><source src="assets/video/circle-collab.mp4" type="video/mp4"></video></div>
+        <!--/COLLAB_MEDIA-->
+        <div class="collab-r">
+          <div class="m">써클 크리에이터 Bella Brocks가 서울 본사를 직접 방문해 CEO와 함께 촬영한 콜라보 영상입니다.</div>
+          <div class="stat"><div class="n">750K+</div><span>조회수</span></div>
+          <div class="stat"><div class="n">50K+</div><span>좋아요</span></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="reels-h">크리에이터 영상</div>
+  <div class="reels-h">써클 크리에이터 영상</div>
   <div class="marquee" id="creator-reels">
     <div class="mq-track">
     <!--CREATOR_REELS-->
@@ -356,54 +406,16 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
   </div>
 </section>
 
-<!-- 5b 레몬더마 써클 (신규) -->
-<section class="s" id="circle"><div class="bar"></div>
-  <div class="tag">03 · 마케팅<span class="new">NEW</span></div><h1>레몬더마 써클 · 메가 인플루언서 네트워크</h1>
-  <div class="sub"><!--CIRCLE_SUB-->
-레몬더마 써클은 브랜드와 협업하는 글로벌 크리에이터 네트워크입니다. 미국, 유럽, 중동, 한국의 메가 인플루언서가 함께하고 있으며, 아래 여섯 명의 팔로워만 합쳐도 3,400만 명이 넘습니다.
-      <!--/CIRCLE_SUB--></div>
-  <div class="split sp-c">
-    <div class="pfs" id="circle-profiles">
-      <!--CIRCLE_PROFILES-->
-      <a class="pf" href="https://www.instagram.com/ponysmakeup/" target="_blank" rel="noopener"><img src="assets/img/circle/ponysmakeup.jpg" alt="PONY 포니" loading="lazy"><div><div class="nm">PONY 포니</div><div class="hd">@ponysmakeup · 3개 채널 합산</div><div class="fo">약 27M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/rebeccaghaderi/" target="_blank" rel="noopener"><img src="assets/img/circle/rebeccaghaderi.jpg" alt="Rebecca Ghaderi" loading="lazy"><div><div class="nm">Rebecca Ghaderi</div><div class="hd">@rebeccaghaderi · Instagram + YouTube</div><div class="fo">2.8M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/zooya_beauty/" target="_blank" rel="noopener"><img src="assets/img/circle/zooya_beauty.jpg" alt="Zooya Beauty" loading="lazy"><div><div class="nm">Zooya Beauty</div><div class="hd">@zooya_beauty · Instagram + TikTok + YouTube</div><div class="fo">2.5M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/bellabrocks/" target="_blank" rel="noopener"><img src="assets/img/circle/bellabrocks27.jpg" alt="Bella Brocks" loading="lazy"><div><div class="nm">Bella Brocks</div><div class="hd">@bellabrocks · Instagram + TikTok + YouTube</div><div class="fo">1.4M<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/forough_joon/" target="_blank" rel="noopener"><img src="assets/img/circle/forough_joon.jpg" alt="Forough" loading="lazy"><div><div class="nm">Forough</div><div class="hd">@forough_joon · Instagram + TikTok + YouTube</div><div class="fo">573K<small>팔로워</small></div></div></a>
-      <a class="pf" href="https://www.instagram.com/jgerenaia_victoria/" target="_blank" rel="noopener"><img src="assets/img/circle/jgerenaia_victoria.jpg" alt="Viki" loading="lazy"><div><div class="nm">Viki</div><div class="hd">@jgerenaia_victoria · Instagram + TikTok</div><div class="fo">308K<small>팔로워</small></div></div></a>
-      <!--/CIRCLE_PROFILES-->
-    </div>
-    <div>
-      <div class="box hl">
-        <div class="t">써클 크리에이터 × CEO 콜라보 영상</div>
-        <div class="collab">
-          <!--COLLAB_MEDIA-->
-          <div class="vf port"><video muted loop playsinline preload="none" poster="assets/video/circle-collab.jpg" aria-label="본사 방문 콜라보 영상"><source src="assets/video/circle-collab.mp4" type="video/mp4"></video></div>
-      <!--/COLLAB_MEDIA-->
-          <div>
-            <div class="m">써클 크리에이터 Bella Brocks가 서울 본사를 직접 방문해 CEO와 함께 촬영한 콜라보 영상입니다.</div>
-            <div class="nums">
-              <div><div class="n" style="font-weight:800;color:var(--olive2)">750K+</div><span>조회수</span></div>
-              <div><div class="n" style="font-weight:800;color:var(--olive2)">50K+</div><span>좋아요</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--CIRCLE_EXTRA-->
-      <!--/CIRCLE_EXTRA-->
-    </div>
-  </div>
-</section>
-
 <!-- 5c 스킨랩 파트너스 ① (신규) -->
 <section class="s" id="skinlab"><div class="bar"></div>
-  <div class="tag">03 · 마케팅<span class="new">NEW</span></div><h1>스킨랩 파트너스 · 현지 소비자 커뮤니티</h1>
+  <div class="tag">03 · 마케팅</div><h1>스킨랩 파트너스 · 현지 소비자 커뮤니티</h1>
   <div class="sub">스킨랩 파트너스는 현지 소비자를 선발해 4주간 제품을 직접 써보며 콘텐츠 8개를 시청하고 질문에 답변하고 1개 이상의 후기 릴스를 업로드하는 프로그램입니다. CEO의 진정성 있는 목소리를 듣고 직접 소통할 수 있는 장점이 있습니다.</div>
   <div class="split sp-e">
-    <div>
+    <div class="tiles-wrap">
       <div class="cols tiles1">
         <!--SKINLAB_TILES-->
         <div class="box hl"><div class="t">지원</div><div class="n">500명+</div><div class="m">2주간 모집</div></div>
+        <div class="box hl"><div class="t">최종 합격</div><div class="n">40명</div><div class="m">경쟁률 12.5 : 1</div></div>
         <div class="box hl"><div class="t">운영</div><div class="n">4주</div><div class="m">2026년 10월 19일~11월 16일</div></div>
       <!--/SKINLAB_TILES-->
       </div>
@@ -423,7 +435,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
 
 <!-- 5d 스킨랩 파트너스 ② (신규) -->
 <section class="s" id="skinlab-talk"><div class="bar"></div>
-  <div class="tag">03 · 마케팅<span class="new">NEW</span></div><h1>스킨랩 파트너스 · 대화방에서 오간 이야기</h1>
+  <div class="tag">03 · 마케팅</div><h1>스킨랩 파트너스 · 대화방에서 오간 이야기</h1>
   <div class="sub">브랜드가 묻고 파트너가 답합니다. 실제 대화방에 올라온 답변의 일부입니다.</div>
   <div class="cols c3" id="skinlab-qa">
     <!--SKINLAB_QA-->
@@ -436,7 +448,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
     <div class="qa"><div class="qn">파트너의 한마디 · 사용 후</div><blockquote>“I actually noticed a difference almost immediately! My skin looks brighter, and my pores appear less visible”<span class="ko">거의 바로 차이를 느꼈어요. 피부가 더 밝아 보이고 모공이 덜 보여요.</span></blockquote></div>
     <div class="qa"><div class="qn">파트너의 한마디 · 바람</div><blockquote>“I really hope to see your products available in pharmacies across the UAE soon! 🤍✨”<span class="ko">UAE 곳곳의 약국에서 곧 만날 수 있으면 좋겠어요.</span></blockquote></div>
   </div>
-  <p class="note">선발된 파트너 55명 가운데 38명이 대화방에 직접 글을 남겼습니다(2026년 11월 10일 기준). 이 밖에 “당신의 스킨케어 루틴은?”, “우리에게 묻고 싶은 것은?” 같은 질문도 주고받았습니다. 현지 피부 고민에 대한 답은 다음 제품 기획에 반영합니다.</p>
+  <p class="note">이 밖에 “당신의 스킨케어 루틴은?”, “우리에게 묻고 싶은 것은?” 같은 질문도 주고받았습니다. 현지 피부 고민에 대한 답은 다음 제품 기획에 반영합니다.</p>
   <div class="box hl next">
     <div class="big">이 성원에 힘입어 다음 기수로 이어 갑니다.</div>
     <div class="chips"><span class="chip">UAE 2기 오픈</span><span class="chip">일본 1기 오픈</span><span class="chip soon">미국 1기 오픈 준비 중</span></div>
@@ -447,32 +459,31 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
 <section class="s" id="s04"><div class="bar"></div>
   <div class="tag">04 · 파트너 성공 사례</div><h1>몽골 독점 총판</h1>
   <div class="sub">2026년 7월 세럼 독점 총판 계약 후 현지 약국 채널 중심으로 런칭.</div>
-  <div class="split sp-a">
-    <div>
-      <div class="cols c3">
-        <div class="box hl"><div class="t">판매 속도</div><div class="n">약 15,000개</div><div class="m">런칭 후 3개월</div></div>
-        <div class="box hl"><div class="t">채널</div><div class="n">100곳+</div><div class="m">약국 및 오프라인 스토어</div></div>
-        <div class="box"><div class="t">현지 마케팅</div><div class="n">앰버서더</div><div class="m">탑모델·배우 앰버서더 + SNS 광고</div></div>
-      </div>
-      <div class="box" style="margin-top:14px"><div class="t">시사점</div><div class="m">한국 '약국 전용' 포지션이 해외 약국 채널에서도 그대로 통했습니다. 브랜드는 PONY 콘텐츠 등 글로벌 캠페인을 지원하고, 현지 유통사가 채널과 앰버서더를 운영하는 구조입니다.</div></div>
+  <div class="split sp-a mn">
+    <div class="statrows">
+      <div class="box hl statrow"><div><div class="t">판매 속도</div><div class="n">약 15,000개</div></div><div class="m">런칭 후 3개월</div></div>
+      <div class="box hl statrow"><div><div class="t">채널</div><div class="n">100곳+</div></div><div class="m">약국 및 오프라인 스토어</div></div>
+      <div class="box statrow"><div><div class="t">현지 마케팅</div><div class="n">앰버서더</div></div><div class="m">탑모델·배우 앰버서더<br>+ SNS 광고</div></div>
+      <div class="box"><div class="t">시사점</div><div class="m">한국 '약국 전용' 포지션이 해외 약국 채널에서도 그대로 통했습니다. 브랜드는 PONY 콘텐츠 등 글로벌 캠페인을 지원하고, 현지 유통사가 채널과 앰버서더를 운영하는 구조입니다.</div></div>
     </div>
-    <figure><div class="vf contain" style="aspect-ratio:1/1;background:#f3f1c8;max-width:440px;margin:0 auto"><img src="assets/img/mongolia-map.jpg" alt="몽골 지역 공식 판매처 지도" loading="lazy"></div><figcaption style="text-align:center">몽골 공식 계정 · 지역 공식 판매처 모집 (전국 확장 중)</figcaption></figure>
+    <figure class="mn-map"><div class="vf contain" style="aspect-ratio:1/1;background:#f3f1c8"><img src="assets/img/mongolia-map.jpg" alt="몽골 지역 공식 판매처 지도" loading="lazy"></div><figcaption style="text-align:center">몽골 공식 계정 · 지역 공식 판매처 모집 (전국 확장 중)</figcaption></figure>
   </div>
 </section>
 
 <!-- 7 채널 -->
 <section class="s" id="s05"><div class="bar"></div>
   <div class="tag">05 · 채널 레퍼런스</div><h1>국가별 판매 채널</h1>
-  <div class="sub">7개국 판매 · 아마존 2개국 직접 운영</div>
-  <div class="tw min-t"><table>
+  <div class="tw ch-t" style="margin-top:14px"><table>
     <tr><th>국가</th><th>채널</th><th>운영 방식</th></tr>
     <tr><td class="k">한국</td><td>약국</td><td>약국 전용 유통</td></tr>
-    <tr><td class="k">미국</td><td>Amazon US · Shopify 자사몰 · TikTok Shop</td><td>브랜드 직접 운영</td></tr>
+    <tr><td class="k">미국</td><td>Amazon US · Walmart · Shopify 자사몰 · TikTok Shop</td><td>브랜드 직접 운영</td></tr>
     <tr><td class="k">UAE</td><td>Amazon.ae</td><td>FBA 직접 진출</td></tr>
+    <tr><td class="k">일본</td><td>Qoo10 · Amazon.jp(예정)</td><td>브랜드 직접 운영</td></tr>
     <tr><td class="k">러시아</td><td>골드애플(Золотое Яблоко) 온·오프라인 · 모스크바 오프라인 매장</td><td>현지 유통사. 2026년 8월 골드애플 입점</td></tr>
     <tr><td class="k">몽골</td><td>약국 및 오프라인 스토어 100곳+</td><td>세럼 독점 총판</td></tr>
     <tr><td class="k">태국</td><td>Beautrium 오프라인 매장 · TikTok Shop · Shopee</td><td>현지 파트너 위탁 판매</td></tr>
-    <tr><td class="k">호주</td><td>메디컬 클리닉</td><td>현지 클리닉 파트너 공급</td></tr>
+    <tr><td class="k">호주</td><td>메디컬 클리닉 · Amazon.com.au(예정)</td><td>현지 클리닉 파트너 공급</td></tr>
+    <tr><td class="k">인도</td><td>Amazon.in(예정)</td><td>입점 준비 중</td></tr>
   </table></div>
 </section>
 
@@ -536,7 +547,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 18px 48px;font-size:12px;color:v
 
 </main>
 
-<footer><span>LEMONDERMA · VDVIA Co., Ltd.</span><span>Brand &amp; Marketing Reference · 2026.11.10 업데이트</span></footer>
+<footer><span>LEMONDERMA · VDVIA Co., Ltd.</span><span>Brand &amp; Marketing Reference · 2026.11.11 업데이트</span></footer>
 
 <script>
 (function(){
